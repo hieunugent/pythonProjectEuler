@@ -17,8 +17,6 @@ def game(guess):
         letter = chooseword[pos]
         if letter == guess:
             display[pos] = letter
-          
-  
 
 gameover= False
 while(not gameover):
