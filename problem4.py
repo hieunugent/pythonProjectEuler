@@ -34,3 +34,6 @@ def brute_force(n):
 
 
 print(brute_force(3))
+
+print(10**3)
+print(10**2)
