@@ -38,24 +38,28 @@ def doprime():
     n = int(input("Check this number: "))
     prime_checker(number=n)
 
+import art
 
-
-
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
-#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-def encrypt(text, shift):
+def cipher():
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    print(art.logo)
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
     cipher_text=""
     for letter in text:
         index = alphabet.index(letter)
-        newindex = (index + shift)%len(alphabet)
+        if direction== "encode":
+            newindex = (index + shift)%len(alphabet)
+        elif direction == "decode":
+            newindex = (index - shift)%len(alphabet)
+        else:
+            print("direction is not right")
         cipher_text +=alphabet[newindex]
 
     print("my new code is "+ cipher_text)
+#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
     #e.g. 
     #plain_text = "hello"
@@ -67,18 +71,37 @@ def encrypt(text, shift):
     #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
 
     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
-def decrypt(text, shift):
-    cipher_text = ""
-    for letter in text:
-        index = alphabet.index(letter)
-        
-        newindex = (index - shift)%len(alphabet)
-        cipher_text +=alphabet[newindex]
-    print("my new code is "+ cipher_text)   
+  
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-if (direction == "encode"):
-    encrypt(text, shift)
-elif (direction == "decode"):
-    decrypt(text,shift)
-else:
-    print("your direction not right")
+# ceacar(direction, text, shift)
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+
+#TODO-1: Create an empty dictionary called student_grades.
+
+student_grades={}
+#TODO-2: Write your code below to add the grades to student_grades.👇
+for a in student_scores:
+    if student_scores[a] >= 80:
+        student_grades[a]="A"
+    elif student_scores[a] >=70:
+        student_grades[a]="B"
+    elif (student_scores[a] >=60):
+        student_grades[a]="C"
+    elif (student_scores[a]>=50):
+        student_grades[a]="D"
+    
+
+# 🚨 Don't change the code below 👇
+print(student_grades)
+
+
+
+
+
