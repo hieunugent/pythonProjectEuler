@@ -30,14 +30,15 @@
 
 #Hint 3: Download and read this flow chart I've created: 
 #   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
-
+def play_game():
+    print(logoBJ)
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
-#cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
-#user_cards = []
-#computer_cards = []
+user_cards = []
+computer_cards = []
 
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
 #and returns the score. 
@@ -60,5 +61,11 @@
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 
 from art import logoBJ
-print(logoBJ)
-playGame = input("Do you want to play a game of Blackjack? Type 'y' or 'n':")
+import os
+
+
+
+
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n':") == 'y':
+    os.system('clear')
+    play_game()
