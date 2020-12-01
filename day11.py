@@ -30,16 +30,67 @@
 
 #Hint 3: Download and read this flow chart I've created: 
 #   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
+from art import logoBJ
+import random
+import os
 def play_game():
     print(logoBJ)
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+def deal_card():
+    return random.choice(cards)
+
 
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
 user_cards = []
 computer_cards = []
+blackJack = [10,8,10]
+for init in range(0, 2):
+    user_cards.append(deal_card())
+    computer_cards.append(deal_card())
 
+print(user_cards)
+print(computer_cards)
+def calculate_score(list):
+    if len(list) == 2 and sum(list)== 21:
+        return 0 
+    if sum(list) > 21:
+        for card in list:
+            if card == 11:
+                list.remove(card)
+                list.append(1)  
+    return sum(list)
+def isgameover(user, comp):
+    if calculate_score(user) == 0 or calculate_score(comp)==0 or calculate_score(user) > 21:
+        return True
+    return False
+def isWin(user, comp):
+    if calculate_score(user) > calculate_score(comp):
+        return True
+    return False
+def needtodraw(list):
+    if calculate_score(list) < 17:
+        computer_cards.append(deal_card())
+
+
+print(calculate_score(user_cards))
+print(calculate_score(computer_cards))
+print(calculate_score(blackJack))
+print(isgameover(blackJack,user_cards))
+gameover = isgameover(user_cards,computer_cards)
+while not gameover:
+    drawnext = input("do you want to draw another card ? y/n: ")
+    if drawnext == "n":
+        gameover = True
+    else:
+        user_cards.append(deal_card());
+
+
+if isWin(user_cards, computer_cards):
+    print("User Win")
+else:
+    print("User Lose")
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
 #and returns the score. 
 #Look up the sum() function to help you do this.
@@ -60,12 +111,11 @@ computer_cards = []
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 
-from art import logoBJ
-import os
 
 
 
 
-while input("Do you want to play a game of Blackjack? Type 'y' or 'n':") == 'y':
-    os.system('clear')
-    play_game()
+def startgame():
+    while input("Do you want to play a game of Blackjack? Type 'y' or 'n':") == 'y':
+        os.system('clear')
+        play_game()
