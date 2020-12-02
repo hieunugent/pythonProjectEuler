@@ -35,13 +35,6 @@ def playGuessgame():
     if attemp == 0:
         print("You run out of guess")
 
-
-
-
-
-playGuessgame()
-
-
 while stillplay:
     playGuessgame()
     yourdecision = input("Do you want to play again? y/n: ")
