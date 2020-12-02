@@ -33,8 +33,7 @@
 from art import logoBJ
 import random
 import os
-def play_game():
-    print(logoBJ)
+
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -43,15 +42,7 @@ def deal_card():
 
 
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
-user_cards = []
-computer_cards = []
-blackJack = [10,8,10]
-for init in range(0, 2):
-    user_cards.append(deal_card())
-    computer_cards.append(deal_card())
 
-print(user_cards)
-print(computer_cards)
 def calculate_score(list):
     if len(list) == 2 and sum(list)== 21:
         return 0 
@@ -62,35 +53,87 @@ def calculate_score(list):
                 list.append(1)  
     return sum(list)
 def isgameover(user, comp):
-    if calculate_score(user) == 0 or calculate_score(comp)==0 or calculate_score(user) > 21:
+    if calculate_score(user) == 0 or calculate_score(comp)==0:
         return True
     return False
+
+
 def isWin(user, comp):
-    if calculate_score(user) > calculate_score(comp):
-        return True
-    return False
-def needtodraw(list):
-    if calculate_score(list) < 17:
-        computer_cards.append(deal_card())
+    if calculate_score(user) == 0:
+        return "win"
+    elif calculate_score(comp) == 0:
+        return "lose"
+    elif (calculate_score(user) > calculate_score(comp) and calculate_score(user) <= 21 ) :
+        return "win"
+    elif calculate_score(comp) < 22 and calculate_score(comp) > 16 and calculate_score(user) > calculate_score(comp):
+        return "lose"
+    elif calculate_score(user) < calculate_score(comp) and calculate_score(comp) >21:
+        return "win"
+    elif calculate_score(user) == calculate_score(comp):
+        return "draw"
+    return "lose"
 
 
-print(calculate_score(user_cards))
-print(calculate_score(computer_cards))
-print(calculate_score(blackJack))
-print(isgameover(blackJack,user_cards))
-gameover = isgameover(user_cards,computer_cards)
-while not gameover:
-    drawnext = input("do you want to draw another card ? y/n: ")
-    if drawnext == "n":
-        gameover = True
-    else:
-        user_cards.append(deal_card());
+def dealerplay(list):
+    while calculate_score(list) < 17 and calculate_score(list) < 22:
+        list.append(deal_card())
 
 
-if isWin(user_cards, computer_cards):
-    print("User Win")
-else:
-    print("User Lose")
+
+users =[11,10]
+compu = [10,9]
+
+print(isWin(users, compu))
+
+
+def play_game():
+    print(logoBJ)
+    user_cards = []
+    computer_cards = [1,4] 
+    for init in range(0, 2):
+        user_cards.append(deal_card())
+        # computer_cards.append(deal_card())
+    print("Dealer card is: " + str(computer_cards[0]))
+    print("Your Cards: " + str(user_cards) +
+          " Total cards: " + str(calculate_score(user_cards)))
+    gameover = isgameover(user_cards, computer_cards)
+    while not gameover:
+        drawnext = input("do you want to draw another card ? y/n: ")
+        if drawnext == "n":
+            gameover = True
+        else:
+            user_cards.append(deal_card())
+            print("Dealer card is: " + str(computer_cards[0]) )
+            print("Your Cards: " + str(user_cards) + " Total cards: "+ str(calculate_score(user_cards)))
+            if calculate_score(user_cards) > 21:
+                gameover= True
+  
+    dealerplay(computer_cards)
+
+    if isWin(user_cards, computer_cards) == "win":
+        print("Your card " + " Total cards: " +
+              str(calculate_score(user_cards)))
+        print(user_cards)
+        print("Dealer Card" + " Total cards: " +
+              str(calculate_score(computer_cards)))
+        print(computer_cards)
+        print("User Win")
+    elif isWin(user_cards, computer_cards) == "lose":
+        print("Your card " + " Total cards: " +
+              str(calculate_score(user_cards)))
+        print(user_cards)
+        print("Dealer Card" + " Total cards: " +
+              str(calculate_score(computer_cards)))
+        print(computer_cards)
+        print("User Lose")
+    elif isWin(user_cards, computer_cards) == "draw":
+        print("Your card " + " Total cards: " +
+              str(calculate_score(user_cards)))
+        print(user_cards)
+        print("Dealer Card" + " Total cards: " +
+              str(calculate_score(computer_cards)))
+        print(computer_cards)
+        print("Draw")
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
 #and returns the score. 
 #Look up the sum() function to help you do this.
@@ -114,8 +157,6 @@ else:
 
 
 
-
-def startgame():
-    while input("Do you want to play a game of Blackjack? Type 'y' or 'n':") == 'y':
-        os.system('clear')
-        play_game()
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n':") == 'y':
+    os.system('clear')
+    play_game()
