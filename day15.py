@@ -32,13 +32,16 @@ resources = {
 
 
 # print report
-money = 102
-def printreport(data):
+
+def printreport(data, money):
     print("water: "+ str(data.get("water")))
     print("milk: "+ str(data.get("milk")))
     print("coffee: "+ str(data.get("coffee")))
     print("money: $"+ str(money))
 # check if resource is ok
+def set(a, b):
+    a = b
+
 def checkRecource(resource, coffee):
     if resource.get("water") < coffee.get("ingredients").get("water"):
         print("Sorry, there is not enough water")
@@ -52,46 +55,67 @@ def checkRecource(resource, coffee):
     else:
         return True
 
+def maintaince():
+    return {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
 #  process coin
 
 def canpurchase(total, price):
     if (total < price):
+        print("Sorry that's not enough money. Money refunded.")
         return False
     return True
-def processcoin(quaters, dimes, nickles, pennies):
+def processcoin():
+    print("please Insert your money")
+    quaters = int(input("number of quaters: "))
+    dimes = int(input("number of dimes: "))
+    nickles= int(input("number of nickles: "))
+    pennies = int(input("number of pennies: "))
     return quaters*.25 + dimes*0.1 + nickles*0.05 + pennies*0.01
 
 
 # check transaction successfully
+def updateresource(inventory, used):
+    return {"water" : inventory.get("water") - used.get("water"),
+             "milk" : inventory.get("milk") - used.get("milk"),
+             "coffee" : inventory.get("coffee") - used.get("coffee")
+             }
 # make coffee
 turnOn= True
-
+earning = 0
 while turnOn:
     choice = str(input("what would you like? (espresso/latte/cappuchino)"))
     if choice == "report":
-        printreport(resources)
+        printreport(resources, money=earning)
         continue
-    if choice == "off":
+    elif choice == "off":
         turnOn = False
         continue
+    elif choice == "maintain":
+        resources = maintaince()
+        continue
+    elif choice == "latte" or choice == "espresso" or choice =="cappuchino":
+        cost = MENU.get(choice).get("cost")
+        print("your " + choice + " cost $"+str(cost))
+        
 
-    print("please Insert your money")
-    quaters = int(input("number of quaters"))
-    dimes = int(input("number of dimes"))
-    nickles= int(input("number of nickles"))
-    pennies = int(input("number of pennies"))
-
-    totalmoney =processcoin(quaters, dimes, nickles, pennies) 
-    cost = MENU.get(choice).get("cost")
-    coffee = MENU.get(choice)
-    if canpurchase(total=totalmoney,price=cost):
+        totalmoney =processcoin() 
+        cost = MENU.get(choice).get("cost")
+        coffee = MENU.get(choice)
+        materialcost =(coffee.get("ingredients"))
+    if canpurchase(total=totalmoney, price=cost):
         if checkRecource(resource=resources, coffee=coffee):
-              print("Here is your "+ choice + ", enjoy ")
-              if(cost < totalmoney):
-                  refund = round(totalmoney -cost,2)
-                  print("Here is your $"+ str(refund) + " change")
-    else:
-        print("Sorry that's not enough money. Money refunded.")
+            print("Here is your "+ choice + ", enjoy ")
+            earning += cost
+            resources = updateresource(resources, materialcost)
+            if(cost < totalmoney):
+                refund = round(totalmoney -cost,2)
+                print("Here is your $"+ str(refund) + " change")
+
     
+            
 
 
