@@ -40,7 +40,7 @@ while not gameover:
     if (data[a].get("follower_count") > data[b].get("follower_count")):
             winner = "a"
     elif (data[a].get("follower_count") < data[b].get("follower_count")):
-            winner = "b"
+            winner = "b"q
     print(winner)
     yourchoice = input("Who has higher follower A or B ? ").lower()
     if winner == yourchoice:
