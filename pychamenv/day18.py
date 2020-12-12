@@ -34,16 +34,18 @@ def triagle(size):
 def shape(side, num):
     count = 0 
     if side >= 3:
-        while count <=side:
+        while count < side:
             timmy.right(360/side)
             timmy.forward(num)
             count+=1
     
         
 
-count = 3        
-while count < 8:
-    shape(count, 100)
+count = 3     
+color = ["red", "black", "blue", "brown", "green", "pink", "orange", "yellow","violet", "cyan"]   
+while count < 13:
+    timmy.pencolor(color[count%10])
+    shape(count, 100) 
     count+=1
 
 screen = Screen()
