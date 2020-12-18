@@ -16,6 +16,17 @@ screen.onkey(gamer.move_up, "Up")
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
+    screen.update()
     car_manager.create_car()
     car_manager.move_cars()
-    screen.update()
+    # detect collition with car
+    for car in car_manager.all_cars:
+        if car.distance(gamer)<20:
+            game_is_on=False
+            scoreboard.game_over()
+    if gamer.finished_line():
+        gamer.reset_player() 
+        scoreboard.levelup()
+
+
+screen.exitonclick()             
