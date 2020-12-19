@@ -21,3 +21,7 @@ class Scoreboard(Turtle):
         self.score +=1
         self.clear()
         self.update_scoreboard()
+    def reset(self):
+        self.score = 0
+        self.clear()
+        self.update_scoreboard()
