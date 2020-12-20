@@ -12,6 +12,7 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 import time
+
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
@@ -41,10 +42,12 @@ while game_is_on:
      # detect colliition with wall   
     if snake.head.xcor() >=300 or snake.head.xcor() <=-300 or snake.head.ycor() >= 300 or snake.head.ycor() <=-300:
             score.reset()
+            snake.reset()
     # detect collition with tail
     for segment in snake.segments[1::1]:
        if snake.head.distance(segment) < 10:
             score.reset()
+            snake.reset()
 
 
 screen.exitonclick()
