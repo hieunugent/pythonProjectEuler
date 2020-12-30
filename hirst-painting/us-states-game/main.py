@@ -1,15 +1,14 @@
 import turtle
 import os
-import gif
 import pandas
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-background = os.path.join(THIS_FOLDER, 'backgound.gif')
+background = os.path.join(THIS_FOLDER, 'backgound.png')
 screen = turtle.Screen()
 screen.title("U.S. State Game")
-# images = background
+images = background
 
-# screen.addshape(images)
-# turtle.shape(images)
+screen.addshape(images)
+turtle.shape(images)
 fiftystate = os.path.join(THIS_FOLDER, '50_states.csv')
 data = pandas.read_csv(fiftystate)
 all_states = data.state.to_list()
