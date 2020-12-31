@@ -24,7 +24,7 @@ if answer_state in all_states:
     t.goto(int(state_data.x), int(state_data.y))
     t.write(answer_state)
     
-
+print(answer_state)
 
 
 screen.exitonclick()
