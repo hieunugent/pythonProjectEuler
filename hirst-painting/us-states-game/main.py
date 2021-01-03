@@ -26,7 +26,7 @@ if answer_state in all_states:
     
 print(answer_state)
 
-
+# the problem is it can not show image on background
 screen.exitonclick()
 
 
