@@ -14,17 +14,18 @@ data = pandas.read_csv(fiftystate)
 all_states = data.state.to_list()
 
 answer_state = screen.textinput(title="Guess the State",prompt="What's another state's name?" )
-
-
-if answer_state in all_states:
-    t = turtle.Turtle()
-    t.hideturtle()
-    t.penup()
-    state_data = data[data.state==answer_state]
-    t.goto(int(state_data.x), int(state_data.y))
-    t.write(answer_state)
-    
-print(answer_state)
+answer =[];
+while len(answer)<50:
+    if answer_state in all_states:
+        answer.append(answer_state)
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data = data[data.state==answer_state]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(answer_state)
+        
+    print(answer_state)
 
 # the problem is it can not show image on the code background
 screen.exitonclick()
