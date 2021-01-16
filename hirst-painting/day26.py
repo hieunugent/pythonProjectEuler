@@ -17,11 +17,11 @@ with open(file2) as f2:
     file2_data = f2.readlines()
 
 result =[int(num) for num in file1_data if num in file2_data ]
-print(result)
+# print(result)
 sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
 
 result1 ={word:len(word) for word in sentence.split()}
-print(result1)
+# print(result1)
 weather_c = {
     "Monday": 12,
     "Tuesday": 14,
@@ -38,4 +38,18 @@ weather_c = {
 
 weather_f ={day:(int(temp)*9/5 + 32) for (day, temp) in weather_c.items()}
 
-print(weather_f)
+# print(weather_f)
+
+student_dict ={
+    "student":["anle", "juli", "luji"],
+    "score":[56,89,90] 
+}
+
+import pandas
+
+
+student_data_frame = pandas.DataFrame(student_dict)
+# print(student_data_frame)
+# for (index, row) in student_data_frame.iterrows():
+#     if row.student == "anle":
+#         #  print(row.score)
