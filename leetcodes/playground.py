@@ -7,3 +7,7 @@ print(C)
 E=A[:]
 
 print(A[4:0:-2])
+
+
+A[0], A[len(A)-1]= A[len(A)-1], A[0]
+print(A)
