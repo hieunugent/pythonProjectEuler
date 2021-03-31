@@ -9,3 +9,6 @@ def generate_prime(n):
     return primes
 
 print(generate_prime(10))
+
+
+
