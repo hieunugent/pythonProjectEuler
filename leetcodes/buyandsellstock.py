@@ -41,21 +41,6 @@ def buy_sell_stock_twice(prices):
 C = [12, 11, 13, 9, 12, 8, 14, 13, 15]
 print(buy_sell_stock_twice(C))
 
-def buy_sell_stock_twice2(prices):
-    max_total_profix = 0.0
-    min_price_so_far = float('inf')   
-    for i, price in enumerate(prices):
-        min_price_so_far = min(min_price_so_far, price)
-        max_total_profix = max(max_total_profix, price-min_price_so_far)
-    
-    max_price_so_far = float('-inf')
-    max_total_profix2 = max_total_profix
-    for i, price in reversed(list(enumerate(prices[1:], 1))):
-        max_price_so_far = max(max_price_so_far, price)
-        max_total_profix2 = max(max_total_profix2, max_total_profix2 - price + max_total_profix)
-    return max_total_profix2
-        
-C = [12, 11, 13, 9, 12, 8, 14, 13, 15]
-print(buy_sell_stock_twice2(C))  
+
     
 
