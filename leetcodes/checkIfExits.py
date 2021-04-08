@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def checkIfExist(self, arr: List[int]) -> bool:
     store = []
     for num in arr:
