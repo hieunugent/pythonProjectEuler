@@ -34,3 +34,19 @@ def thirdMax(self, nums: List[int]) -> int:
             if count == 3:
                 currentmax = i
     return nums[currentmax]
+
+
+def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+    result = []
+    n = len(nums)
+    nums.sort()
+    for i in range(n):
+        value = nums[i]
+        nums[value-1], nums[i] = nums[i], nums[value-1]
+    for i in range(n-1, -1, -1):
+        value = nums[i]
+        nums[value-1], nums[i] = nums[i], nums[value-1]
+    for i in range(n):
+        if i+1 != nums[i]:
+         result.append(i+1)
+    return result
