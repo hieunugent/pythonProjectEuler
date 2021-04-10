@@ -42,5 +42,18 @@ C = [12, 11, 13, 9, 12, 8, 14, 13, 15]
 print(buy_sell_stock_twice(C))
 
 
-    
+def maxProfit(self, prices: List[int]) -> int:
+        i = 0
+        valey = prices[0]
+        peak = prices[0]
+        maxprofit = 0
+        while i < len(prices)-1:
+            while(i < len(prices)-1 and prices[i] >= prices[i+1]):
+                i += 1
+            valey = prices[i]
+            while(i < len(prices)-1 and prices[i] <= prices[i+1]):
+                i += 1
+            peak = prices[i]
+            maxprofit += peak-valey
 
+        return maxprofit
