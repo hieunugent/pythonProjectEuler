@@ -40,3 +40,19 @@ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         
         
         return result 
+
+
+def plusOne(self, digits: List[int]) -> List[int]:
+    carry = 0
+    n = len(digits)
+    digits[n-1] += 1
+    for i in range(n - 1, -1, -1):
+            current = digits[i] + carry
+            digits[i] = current % 10
+            if current > 9:
+                carry = 1
+            else:
+                carry = 0
+    if carry == 1:
+        return [1] + digits
+    return digits
