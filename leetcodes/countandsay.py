@@ -19,6 +19,7 @@ def readletter(n):
             result += temp
         else:
             count+=1
+            count = count
     return result
 
 print(readletter("1112224"))        
