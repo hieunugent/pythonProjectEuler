@@ -13,13 +13,12 @@ def readletter(n):
             count = 1
 
         elif i == len(n)-1:
-            
             count+=1
             temp = str(count) + n[i]
             result += temp
         else:
             count+=1
-            count = count
+            count = count +count
     return result
 
 print(readletter("1112224"))        
