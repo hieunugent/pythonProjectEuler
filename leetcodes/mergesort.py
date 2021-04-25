@@ -36,5 +36,6 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
             result.next = l2
         elif l2 == None:
             result.next = l1
+            print(result)
             
         return head
