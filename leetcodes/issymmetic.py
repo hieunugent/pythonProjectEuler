@@ -13,6 +13,6 @@ def isSymmetric(self, root: TreeNode) -> bool:
                 return False
             queue.append(t1.left)
             queue.append(t2.right)
-            queue.append(t1.right)s
+            queue.append(t1.right)
             queue.append(t2.left)
     return True
