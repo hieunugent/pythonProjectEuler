@@ -1,29 +1,30 @@
-def isPalindrome(head):
+def isPalindrome(self, head: ListNode) -> bool:
     temp = head
     length = 0
     while temp != None:
-            length +=1
-            temp =temp.next
+            length += 1
+            temp = temp.next
+    if length <= 1:
+            return True
     mid = length//2
     skipmid = False
-    if length %2 != 0:
+    if length % 2 != 0:
             skipmid = True
-    count = 0
+    count = 1
     pointer = head
-    reverse =[]
+    reverse = ListNode(val=pointer.val, next=None)
+    result = reverse
     while count < mid:
-            count +=1
-            current = ListNode(val =pointer.val, next = None)
-            current.next = reverse
-            reverse = current
-            pointer = pointer.next
+        count += 1
+        pointer = pointer.next
+        temp = ListNode(val=pointer.val, next=result)
+        result = temp
     if skipmid:
             pointer = pointer.next
     pointer = pointer.next
-       
-    while pointer!= None:
-            if pointer.val != reverse.val:
-                return False
-            pointer = pointer.nextS
-            reverse = reverse.next
+    while pointer != None:
+        if pointer.val != result.val:
+            return False
+        pointer = pointer.next
+        result = result.next
     return True
