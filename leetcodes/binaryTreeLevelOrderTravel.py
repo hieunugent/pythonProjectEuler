@@ -15,4 +15,5 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
             stack = tempstack
             if temp:
                 result.append(temp)
+                print(temp)
     return result
