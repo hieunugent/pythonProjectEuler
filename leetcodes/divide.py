@@ -8,5 +8,5 @@ def devide(x: int, y: int )-> int:
         result +=1 <<power
         x -= y_power
     return result
-    
+print(devide(10, 2))
     
