@@ -20,3 +20,6 @@ def median(array1, array2):
 
 
 print (median([1,2,3,4], [5,6,7,8]))   
+print(median([2,3,4,5],[3,2,4,5]))
+print (median([1,2,5,7], [5,6,7,8]))   
+print(median([2,3,4,5],[3,4,5,6]))
