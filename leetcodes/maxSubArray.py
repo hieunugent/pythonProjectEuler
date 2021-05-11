@@ -12,3 +12,6 @@ def maxSubArray(self, nums: List[int]) -> int:
             if maxnum < numsleft[i]:
                 maxnum = numsleft[i]
     return maxnum
+
+nums = [1,2,3,4,5,6,7,8,9,-10]    
+print(maxSubArray(nums))
