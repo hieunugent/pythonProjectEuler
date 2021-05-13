@@ -19,3 +19,4 @@ def rob(self, nums: List[int]) -> int:
 
 
 A = [1, 2, 3, 5, 6, 4]
+print (rob(A))
