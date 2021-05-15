@@ -4,6 +4,7 @@ class MinStack:
         """
         initialize your data structure here.
         """
+        minstack = []
         
 
     def push(self, val: int) -> None:
