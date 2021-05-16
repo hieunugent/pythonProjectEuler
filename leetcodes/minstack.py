@@ -8,6 +8,7 @@ class MinStack:
         
 
     def push(self, val: int) -> None:
+        self.minstack.append(val)
         
 
     def pop(self) -> None:
