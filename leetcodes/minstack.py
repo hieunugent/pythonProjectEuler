@@ -12,6 +12,8 @@ class MinStack:
         
 
     def pop(self) -> None:
+        last = self.minstack[len(self.minstack)-1]
+        newStack = self.minstack[:len(self.minstack)-2]
         
 
     def top(self) -> int:
