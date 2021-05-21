@@ -7,8 +7,19 @@ class MinStack:
         minstack = []
         
 
-    def push(self, val: int) -> None:
-        self.minstack.append(val)
+ def push(self, val: int) -> None:
+        stack = self.minstack
+        if not stack:
+            stack.append(val)
+        else:
+            for i in range(len(stack)):
+                 if stack[i] < val:
+                    stack = stack[:i] +[val] +stack[i:]
+                    break
+        
+        self.minstack = stack
+        print (stack) 
+        
         
 
     def pop(self) -> None:
