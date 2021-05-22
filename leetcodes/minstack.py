@@ -4,10 +4,10 @@ class MinStack:
         """
         initialize your data structure here.
         """
-        minstack = []
+        self.minstack = []
         
 
- def push(self, val: int) -> None:
+    def push(self, val: int) -> None:
         stack = self.minstack
         if not stack:
             stack.append(val)
