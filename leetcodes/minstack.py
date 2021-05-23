@@ -16,6 +16,9 @@ class MinStack:
                  if stack[i] < val:
                     stack = stack[:i] +[val] +stack[i:]
                     break
+                 if i == len(stack)-1:
+                    stack.append(val)
+        
         
         self.minstack = stack
         print (stack) 
