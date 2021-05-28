@@ -1,4 +1,4 @@
- def romanToInt(self, s: str) -> int:
+def romanToInt(self, s: str) -> int:
         value = {
             'I':1,
             'V':5,
