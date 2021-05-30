@@ -11,7 +11,7 @@ def delete_duplicate(A):
     
 A= [1,2,3, 3, 4, 4, 5, 6, 6, 6, 7 ,8, 9]
 A= delete_duplicate(A)
-B = [123,134]
+B = [123,1234,1234,123,134]
 
 
 
