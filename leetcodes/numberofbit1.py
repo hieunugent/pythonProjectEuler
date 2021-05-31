@@ -4,4 +4,4 @@ def hammingWeight(self, n: int) -> int:
             sum += 1
             n = n & (n-1)
     return sum
-print(hammingWeight(10))
+print(hammingWeight(10))  
