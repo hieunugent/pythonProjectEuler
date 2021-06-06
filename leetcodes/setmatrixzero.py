@@ -1,0 +1,2 @@
+def setmatrixzero(matrix):
+    pass
