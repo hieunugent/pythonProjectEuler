@@ -5,6 +5,20 @@ matrix = [
     [1,0,1,0,1],
     [1,0,0,0,0]
 ]
+matrix2 = [
+    [1, 1, 0, 0, 0],
+    [1, 0, 1, 0, 1],
+    [0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0]
+]
+matrix = [
+    [1, 1, 0, 0, 0],
+    [1, 0, 0, 1, 1],
+    [0, 0, 1, 1, 1],
+    [1, 0, 1, 1, 1],
+    [1, 0, 0, 0, 0]
+]
 def addborder(matrix,lenrow,lencol): 
     border={}
     for i in range(lencol):
@@ -15,7 +29,7 @@ def removeIslands(matrix):
     lenrow = len(matrix)
     lencol = len(matrix[0])
     visited = [[False]*lencol]*lenrow
-    
+
 
     border = {}
 
