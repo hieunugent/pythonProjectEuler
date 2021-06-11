@@ -26,6 +26,12 @@ matrix4 = [
     [1, 0, 1, 0, 1],
     [1, 0, 1, 0, 0]
 ]
+matrix5 = [
+    [1, 1, 0, 0, 0],
+    [1, 0, 0, 1, 1],
+    [0, 0, 1, 0, 1],
+   
+]
 def addborder(matrix,lenrow,lencol): 
     border={}
     for i in range(lencol):
