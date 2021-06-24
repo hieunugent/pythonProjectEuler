@@ -1,5 +1,5 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    def lengthOfLongestSubstring (s: str) -> int:
         def firstappear(strs, c):
             res = 0
             for i, l in enumerate(strs):
@@ -22,3 +22,6 @@ class Solution:
             maxlength = len(stack)
 
         return maxlength
+
+    strs = "asthelongest"
+    print(lengthOfLongestSubstring(strs))
