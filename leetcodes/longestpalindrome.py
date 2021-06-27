@@ -17,4 +17,4 @@ def longestPalindrome(self, s: str) -> str:
             if lenmax > end - start:
                 start = i - (lenmax-1)//2
                 end = i + lenmax//2
-        return s[start-1:end]
+        return s[start:end+1]
