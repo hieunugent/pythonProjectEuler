@@ -12,3 +12,16 @@ def increatestriplet(nums):
             return True
     return False
     
+ def increasingTriplet1(self, nums: List[int]) -> bool:
+        
+        x = float("inf")
+        y = float('inf')
+        
+        for i in nums:
+            if x >= i:
+                x = i
+            elif y >= i:
+                y = i
+            else:
+                return True
+        return False
