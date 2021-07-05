@@ -12,7 +12,7 @@ def increatestriplet(nums):
             return True
     return False
     
- def increasingTriplet1(self, nums: List[int]) -> bool:
+def increasingTriplet1(self, nums: List[int]) -> bool:
         
         x = float("inf")
         y = float('inf')
