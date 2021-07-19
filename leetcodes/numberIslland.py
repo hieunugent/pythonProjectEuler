@@ -25,3 +25,4 @@ def DFS( i, j , visitted, grid):
     for k in range(8):
         if isSafe(i+rowDirec[k], j +colDirec, visitted, grid):
             DFS(i+rowDirec[k], j + colDirec, visitted, grid)
+  
