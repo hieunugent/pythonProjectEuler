@@ -16,3 +16,12 @@ class Solution:
                         travelland(i, j)
                         count += 1
         return count
+def isSafe(i, j , visitted, grid):
+    return (i>= 0 and j < len(visitted) and j >= 0 and j < len(visitted[0]) and not visitted[i][j] and grid[i][j])
+def DFS( i, j , visitted, grid):
+    rowDirec=[-1,-1,-1, 0, 0, 1, 1, 1]
+    colDirec=[-1, 0, 1,-1, 1,-1, 0, 1] 
+    visitted[i][j]= True
+    for k in range(8):
+        if isSafe(i+rowDirec[k], j +colDirec, visitted, grid):
+            DFS(i+rowDirec[k], j + colDirec, visitted, grid)
