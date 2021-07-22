@@ -11,11 +11,11 @@
         - Check if S+s  satisfies each of the constraints in C  . 
             - If Yes, then the sub-tree s  is “eligible” to add more “children”.
             - Else, the entire sub-tree s  is useless, so recurs back to step 1 using argument S  .
-        - In the event of “eligibility” of the newly formed sub-tree s  , recurs back to step 1, using argument S+s  .
-        - If the check for S+s  returns that it is a solution for the entire data D  . Output and terminate the program. 
-        - If not, then return that no solution is possible with the current s  and hence discard it.
+        - In the event of “eligibility” of the newly formed sub-tree s, recurs back to step 1, using argument S+s .
+        - If the check for S+s  returns that it is a solution for the entire data D . Output and terminate the program. 
+        - If not, then return that no solution is possible with the currents and hence discard it.
 - Difference between Recursion and Backtracking:
     - In recursion, the function calls itself until it reaches a base case. In backtracking, we use recursion to explore all the possibilities until we get the best result for the problem.
-
+- backtracking is an algorithm for finding all solutions by exploring all potential candidates. If the solution candidate. If the solution candidate turn s to be not a solution or at least not the last one. backtracking algorithm discard it by making some changes on the previous step, i.e backtracks and then try again
 # Dynamic Program 
 # Greedy Algorithms
