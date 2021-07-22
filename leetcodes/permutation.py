@@ -1,10 +1,6 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         results = []
-
-        def swap(i, j):
-            nums[i], nums[j] = nums[j], nums[i]
-
         def backtrack(s, result):
             if len(s) == 0:
                 results.append(result)
@@ -18,3 +14,4 @@ class Solution:
         result = []
         backtrack(nums, result)
         return results
+   
