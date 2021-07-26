@@ -1,11 +1,11 @@
 # backtracking:
 - technique for solving problems recursively by trying to build a solution incrementally, one peach at a time, removing those solutions that fail to satisfy the constraints of the problems at any point in time 
-- can be defined as a general algorithmic technique that considers searching every possible combination inorder to solve a computational problem
+- can be defined as a general algorithmic technique that considers searching every possible combination in order to solve a computational problem
 - Decision Problem – In this, we search for a feasible solution.
 - Optimization Problem – In this, we search for the best solution.
 - Enumeration Problem – In this, we find all feasible solutions.
 - how to determine this is backtracking problem
-    - The Algorithm begins to build up a solution, starting with an empty solution set S  . S = {} 
+    - The Algorithm begins to build up a solution, starting with an empty solution set S . S = {} 
 
         - Add to S  the first move that is still left (All possible moves are added to S  one by one). This now creates a new sub-tree s  in the search tree of the algorithm.
         - Check if S+s  satisfies each of the constraints in C  . 
