@@ -1,14 +1,14 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-           def findtopKth(store):
+        def findtopKth(store):
                 result = []
                 return result
 
-            nums = sorted(nums)
+        nums = sorted(nums)
 
-            store = {}
-            i = 0
-            while i < len(nums):
+        store = {}
+        i = 0
+        while i < len(nums):
                 curr = nums[i]
                 count = 1
                 if i == len(nums)-1:
@@ -18,4 +18,4 @@ class Solution:
                         count += 1
                     store[curr] = count
                 i = i + count
-            return findtopKth(store)
+        return findtopKth(store)
