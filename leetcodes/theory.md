@@ -19,3 +19,14 @@
 - backtracking is an algorithm for finding all solutions by exploring all potential candidates. If the solution candidate. If the solution candidate turn s to be not a solution or at least not the last one. backtracking algorithm discard it by making some changes on the previous step, i.e backtracks and then try again
 # Dynamic Program 
 # Greedy Algorithms
+# heap Queue in Python 
+- the property of this data structure in python is that each time the smallest of heap element  is popped(min heap)
+- whenever elements are pushed or popped, heap structure in maintained
+- the heap[0] element also return the smallest each time
+- heapify : this function is used to convert the iterable into a heap data structure in heap order
+- heappush(heap, ele): this function is used to insert the element mentioned in its arguments into heap. the order is adjusted so as heap structure is maintained 
+- heappop(heap) ; this function is used to removed and return the smallest element from heap. the order is adjusted , so as heap structure is maintained
+- heappushpop(heap, ele) :- This function combines the functioning of both push and pop operations in one statement, increasing efficiency. Heap order is maintained after this operation. 
+- heapreplace(heap, ele) :- This function also inserts and pops element in one statement, but it is different from above function. In this, element is first popped, then the element is pushed.i.e, the value larger than the pushed value can be returned. heapreplace() returns the smallest value originally in heap regardless of the pushed element as opposed to heappushpop().
+- nlargest(k, iterable, key = fun) :- This function is used to return the k largest elements from the iterable specified and satisfying the key if mentioned.
+- nsmallest(k, iterable, key = fun) :- This function is used to return the k smallest elements from the iterable specified and satisfying the key if mentioned.
