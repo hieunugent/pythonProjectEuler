@@ -16,21 +16,25 @@ class Solution:
                 return [right[0], left[1]]
         if len(intervals) == 1:
             return intervals
+        intervals.sort(key=lambda x: x[0])
         current = intervals[0]
         result = []
-        ispush = False
+        ispush = True
 
         for index1, left in enumerate(intervals):
             if index1 == 0:
                 continue
-            elif notoverlap(current, left):
+            if notoverlap(current, left):
                 result.append(current)
                 current = left
-                ispush = not ispush
-            else:
+                ispush = False
+            elif not notoverlap(current, left) and (index1 != len(intervals)-1):
                 current = mergeOverlap(current, left)
-                ispush = not ispush
-        if ispush:
+                ispush = True
+        if notoverlap(current, intervals[-1]):
+            result.append(intervals[-1])
+        else:
+            current = mergeOverlap(current, intervals[-1])
             result.append(current)
 
         return result
