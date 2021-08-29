@@ -7,3 +7,4 @@
 # improve algorithm:
 # only run a haft bottom of the array
 # the diagonal will be the sum of the index [i-1][j-1] + [i][j-1] +[i][j-2]
+# the max number of m and n will be the row
