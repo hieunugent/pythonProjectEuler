@@ -9,4 +9,4 @@
 # the diagonal will be the sum of the index [i-1][j-1] + [i][j-1] +[i][j-2]
 # the max number of m and n will be the row
 # the their is the column number must be equal row then calculate until diagonal 
-# 
+# there is a problem to do in this way is out of bound 
