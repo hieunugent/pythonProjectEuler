@@ -4,5 +4,5 @@
 # but this is Excess the limit time 
 # using the Dynamic problem:
 # not recalculate the already done step just used it 
-#  store the step calculate it in array list 
-#  only get the min step possible 
+# store the step calculate it in array list 
+# only get the min step possible 
