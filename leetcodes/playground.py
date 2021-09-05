@@ -40,6 +40,9 @@ while curr_depth_node:
     curr_depth_node = [child for curr in curr_depth_node 
                 for child in (curr.left, curr.right) if child]
 # print(result)
+# implement the queue by stack, we using 2 stack
+#  to implement a queue FIFO, stack LIFO
+#  
 
 
 
