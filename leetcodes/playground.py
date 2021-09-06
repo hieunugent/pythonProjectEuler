@@ -42,7 +42,9 @@ while curr_depth_node:
 # print(result)
 # implement the queue by stack, we using 2 stack
 #  to implement a queue FIFO, stack LIFO
-#  
 
+# BST 
+# lowest common accestor
+#   
 
 
