@@ -44,8 +44,8 @@ while curr_depth_node:
 #  to implement a queue FIFO, stack LIFO
 
 # BST 
-# lowest common accestor
+# lowest common accessor
 # lONGEST Increasing subsequence
-#   
+# 
 
 
