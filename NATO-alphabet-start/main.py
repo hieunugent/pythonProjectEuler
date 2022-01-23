@@ -34,6 +34,18 @@ phonetic_dict = {row.letter : row.code for (index, row) in data.iterrows()}
 {"A": "Alfa", "B": "Bravo"}
 print(phonetic_dict)
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-word=input("Enter the word:").upper()
-output_list = [phonetic_dict[letter] for letter in word]
-print(output_list)
+
+
+
+
+def phonetic_code():
+    word = input("Enter the word:").upper()
+    try:
+         output_list = [phonetic_dict[letter] for letter in word]
+    except KeyError:
+        print("This is not a valid word")
+        phonetic_code()
+    else:
+      print(output_list)
+
+phonetic_code()
