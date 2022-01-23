@@ -4,7 +4,7 @@
 # # FILEnot found error
 # # Key Error
 # # Index Error
-# # type eror
+# # type error
 # # text = "abx"
 # # print(text + 5)
 # from pip._vendor.pep517.compat import FileNotFoundError
@@ -23,5 +23,23 @@
 #     print(content)
 # finally:
 #     raise TypeError("this is the error i make up")
+def bmi():
+    height = float(input("height: "))
+    weight = float(input("weight: "))
+    if height > 3:
+        raise ValueError("height is too big")
 
+    bmi = weight / (height ** 2)
+    print(bmi)
 
+fruits= ["apple", "banana", "cherry"]
+def make_pie(index):
+    try:  
+         fruit = fruits[index]
+    except IndexError:
+        print("Index is out of range")
+    else:
+         print(f"making pie with {fruit}")
+
+make_pie(2)
+make_pie(4)
