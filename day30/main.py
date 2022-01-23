@@ -16,7 +16,7 @@
 # except FileNotFoundError:
 #     file = open('a_file.txt', "w")
 #     file.write("something")
-# except KeyError as error_message:
+# except KeyError as error_mssage:
 #     print(f"The Key {error_message} this is key error")
 # else:
 #     content= file.read()
@@ -40,6 +40,25 @@ def make_pie(index):
         print("Index is out of range")
     else:
          print(f"making pie with {fruit}")
+         
+facebook_post =[
+    {'Like':1, 'Comment':10, 'Share':5},
+    {'Like':1, 'Comment':5, 'Share':3},
+    { 'Comment':2, 'Share':1},
+    {'Like':1, 'Comment':15},
+    {'Like':1, 'Comment':12},
+    {'Like':1, 'Share':2},
+    ]
 
-make_pie(2)
-make_pie(4)
+def numberofLike(fbpost):
+    total_like = 0
+    for post in fbpost:
+        try:     
+            currentlike = post['Like']
+        except KeyError:
+            total_like += 0
+        else:
+            total_like += currentlike
+    return total_like
+
+print(numberofLike(facebook_post))
