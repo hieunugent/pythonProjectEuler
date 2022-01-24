@@ -1,3 +1,4 @@
+from gettext import NullTranslations
 from tkinter import *
 from tkinter import ttk, messagebox
 from  random import choice, randint, shuffle
@@ -36,10 +37,18 @@ def save():
     else:
         is_ok = messagebox.askokcancel(title=website, message=f"There are the details entered: \nEmail: {email} \nPassword: {password} \nIs it ok to save?")
         if is_ok:
-            with open("./password/data.json", "a") as data_file:
-                json.dump(new_data, data_file)
-                
-                
+            data=''
+            try:
+                with open("./password/data.json", "r") as data_file:
+                    data = json.load(data_file)
+            except FileNotFoundError:
+                with open("./password/data.json", "w") as data_file:
+                    json.dump(new_data, data_file, indent=4)
+            else:
+                data.update(new_data)
+                with open("./password/data.json", "w") as data_file:
+                    json.dump(data, data_file, indent=4)
+            finally:    
                 # data_file.write(f"{website} | {email} | {password} \n")
                 website_entry.delete(0, END)
                 # email_entry.delete(0, END)
