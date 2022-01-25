@@ -22,6 +22,21 @@ def generate_password():
     password ="".join(password_list)
     password_generated.insert(0, password)
     pyperclip.copy(password)
+# ---------------------------- SEARCH PASSWORD------------------------------- #
+def search_password():
+    website = website_entry.get()
+    try:
+        with open("./password/data.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Oops", message="No data found") 
+    else:
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email} \nPassword: {password}")
+        else:
+            messagebox.showinfo(title="Oops", message="No data found")
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
@@ -73,6 +88,8 @@ lable1 = Label(text="Website:")
 lable1.grid(row=1,column=0)
 website_entry = Entry(width=35)
 website_entry.grid(column=1, row=1, columnspan=2)
+btnsearch = ttk.Button(text="Search", command=search_password)
+btnsearch.grid(column=3, row=1)
 lable2 = Label(text="Email/Username:")
 lable2.grid(row=2, column=0)
 email_entry = Entry(width=35)
