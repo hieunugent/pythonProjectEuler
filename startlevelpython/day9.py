@@ -1,4 +1,4 @@
-from art import logo1
+from startlevelpython.art import logo1
 import os
 #HINT: You can call clear() to clear the output in the console.
 print(logo1)
