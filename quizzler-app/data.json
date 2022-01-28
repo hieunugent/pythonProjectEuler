@@ -1,0 +1,120 @@
+[
+    {
+        "category": "Entertainment: Television",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In the Doctor Who universe, how many times can a time lord normally regenerate?",
+        "correct_answer": "12",
+        "incorrect_answers": [
+            "11",
+            "13",
+            "15"
+        ]
+    },
+    {
+        "category": "Entertainment: Musicals & Theatres",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which Shakespeare play inspired the musical &#039;West Side Story&#039;?",
+        "correct_answer": "Romeo &amp; Juliet",
+        "incorrect_answers": [
+            "Hamlet",
+            "Macbeth",
+            "Othello"
+        ]
+    },
+    {
+        "category": "Entertainment: Video Games",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "In the first game of the Sly Cooper franchise, what family heirloom did Sly Cooper want to steal back?",
+        "correct_answer": "Thievius Raccoonus",
+        "incorrect_answers": [
+            "Raccoon Training 101",
+            "The Art of Sneak",
+            "Raccoonus Teachus"
+        ]
+    },
+    {
+        "category": "Mythology",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "In Norse mythology, what is the name of the serpent which eats the roots of the ash tree Yggdrasil?",
+        "correct_answer": "Nidhogg",
+        "incorrect_answers": [
+            "Bragi",
+            "Odin",
+            "Ymir"
+        ]
+    },
+    {
+        "category": "Animals",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "The now extinct species &quot;Thylacine&quot; was native to where?",
+        "correct_answer": "Tasmania, Australia",
+        "incorrect_answers": [
+            "Baluchistan, Pakistan",
+            "Wallachia, Romania",
+            "Oregon, United States"
+        ]
+    },
+    {
+        "category": "Entertainment: Comics",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What is the designation given to the Marvel Cinematic Universe?",
+        "correct_answer": "Earth-199999",
+        "incorrect_answers": [
+            "Earth-616",
+            "Earth-10005",
+            "Earth-2008"
+        ]
+    },
+    {
+        "category": "Entertainment: Television",
+        "type": "boolean",
+        "difficulty": "medium",
+        "question": "In &quot;Star Trek&quot;, Klingons respect William Shakespeare, they even suspect him having a Klingon lineage.",
+        "correct_answer": "True",
+        "incorrect_answers": [
+            "False"
+        ]
+    },
+    {
+        "category": "Entertainment: Cartoon & Animations",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In &quot;My Little Pony: Friendship is Magic&quot;, which of these ponies represents the quality of honesty?",
+        "correct_answer": "Applejack",
+        "incorrect_answers": [
+            "Twilight Sparkle",
+            "Pinkie Pie",
+            "Rarity"
+        ]
+    },
+    {
+        "category": "General Knowledge",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which American manufactured submachine gun was informally known by the American soldiers that used it as &quot;Grease Gun&quot;?",
+        "correct_answer": "M3",
+        "incorrect_answers": [
+            "Colt 9mm",
+            "Thompson",
+            "MAC-10"
+        ]
+    },
+    {
+        "category": "Art",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The painting &quot;The Starry Night&quot; by Vincent van Gogh was part of which art movement?",
+        "correct_answer": "Post-Impressionism",
+        "incorrect_answers": [
+            "Romanticism",
+            "Neoclassical",
+            "Impressionism"
+        ]
+    }
+]
