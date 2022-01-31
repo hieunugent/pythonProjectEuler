@@ -2,8 +2,8 @@ from twilio.rest import Client
 
 TWILIO_SID = ""
 TWILIO_AUTH_TOKEN = ""
-TWILIO_VIRTUAL_NUMBER = ""
-TWILIO_VERIFIED_NUMBER=""
+TWILIO_VIRTUAL_NUMBER = "+number"
+TWILIO_VERIFIED_NUMBER="+num"
 class NotificationManager:
     #This class is responsible for sending notifications with the deal flight details.
     def __init__(self):
@@ -14,4 +14,4 @@ class NotificationManager:
             from_=TWILIO_VIRTUAL_NUMBER,
             to= TWILIO_VERIFIED_NUMBER
         )
-        print(message.id)
+        print(message.sid)

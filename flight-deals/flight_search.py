@@ -31,7 +31,8 @@ class FlightSearch:
         response = requests.get(
             url=f"{TEQUILA_ENDPOINT}/v2/search",
             headers=headers,
-            params=query)
+            params=query,
+            )
         
         try:
             data = response.json()["data"][0]
