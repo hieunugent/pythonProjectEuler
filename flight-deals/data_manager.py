@@ -1,11 +1,12 @@
 import requests
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/API/flightDeals/prices"
 
-
+SHEET_USERS_ENDPOINT = "https://api.sheety.co//flightDeals/users/"
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
         self.destination_data ={}
+        self.customer_data = {}
     def get_destination_data(self):
         response = requests.get(url=SHEETY_PRICES_ENDPOINT)
         data = response.json()
@@ -23,3 +24,9 @@ class DataManager:
                 json=new_data
             )
             print(response.text)
+    def get_customer_email(self):
+        customer_endpoint = SHEET_USERS_ENDPOINT
+        response = requests.get(url=customer_endpoint)
+        data = response.json()
+        self.customer_data = data["users"]
+        return self.customer_data
