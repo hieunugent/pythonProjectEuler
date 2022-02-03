@@ -20,7 +20,7 @@ class NotificationManager:
         )
         print(message.sid)
     def send_emails(self, emails,message, google_flight_link ):
-        with smtplib.SMTP(EMAIL_PROVIDER_SMTP_ADDRESS) as connection:
+        with smtplib.SMTP("smtp.gmail.com",547) as connection:
             connection.starttls()
             connection.login(MY_EMAIL, MY_PASSWORD)
             for email in emails:
