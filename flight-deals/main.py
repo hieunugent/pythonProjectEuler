@@ -17,7 +17,7 @@ if sheet_data[0]["iataCode"] == "":
         row["iataCode"] = flight_search.get_destination_code(row["city"])
     data_manager.destination_data = sheet_data
     data_manager.update_destination_codes()
-destinations = {
+    destinations = {
     data["iataCode"]:{ 
         "id":data["id"],
         "city":data["city"],
