@@ -1,16 +1,14 @@
+from urllib import response
 from bs4 import BeautifulSoup
 import requests
 
-response = requests.get("https://news.ycombinator.com/news")
-yc_web_page = response.text
+response = requests.get(
+    'https://www.empireonline.com/movies/features/best-movies-2/')
+ep_web_page = response.text
+soup = BeautifulSoup(ep_web_page, 'html.parser')
 
-soup = BeautifulSoup(yc_web_page, 'html.parser')
-article_tag = soup.find(name="a", class_="titlelink")
-article_text = article_tag.getText()
-article_link = article_tag.get('href')
-article_upvote = soup.find(name="span", class_="score").getText()
-
-print
+list_movies = soup.find_all(name="div", class_='listicle-item')
+print(list_movies.("h3"))
 
 
 
@@ -21,20 +19,32 @@ print
 
 
 
+# from bs4 import BeautifulSoup
+# import requests
 
+# response = requests.get("https://news.ycombinator.com/news")
+# yc_web_page = response.text
 
+# soup = BeautifulSoup(yc_web_page, 'html.parser')
+# articles= soup.find_all(name="a", class_="titlelink")
+# article_texts = []
+# article_links = []
+# for article_tag in articles:
+#     text = article_tag.getText()
+#     link = article_tag.get('href')
+#     article_texts.append(text)
+#     article_links.append(link)
+# article_upvotes = [
+#    int( score.getText().split()[0]) for score in soup.find_all(name="span", class_="score")]
 
+# # print(article_texts)
+# # print(article_links)
 
+# largest_number = max(article_upvotes)
+# largest_index = article_upvotes.index(largest_number)
 
-
-
-
-
-
-
-
-
-
+# print(article_texts[largest_index])
+# print(article_links[largest_index])
 
 
 
