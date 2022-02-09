@@ -10,8 +10,9 @@ bb_page = response.text
 soup = BeautifulSoup(bb_page, "html.parser")
 # print(soup.prettify())
 title_ids= soup.select(selector='li h3')
-print(title_ids)
+# print(title_ids)
 
 titles = [title_id.get_text().replace("\n", "") for title_id in title_ids][:100]
-print(titles)
-print(len(titles))
+# print(titles)
+# print(len(titles))
+
