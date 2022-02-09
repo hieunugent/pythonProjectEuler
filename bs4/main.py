@@ -1,18 +1,19 @@
+from statistics import mode
 from urllib import response
 from bs4 import BeautifulSoup
 import requests
 
 response = requests.get(
-    'https://www.empireonline.com/movies/features/best-movies-2/')
+    'https://www.imdb.com/list/ls055592025/')
 ep_web_page = response.text
 soup = BeautifulSoup(ep_web_page, 'html.parser')
 
-list_movies = soup.find_all(name="div", class_='listicle-item')
-print(list_movies.("h3"))
+list_movies_bucket = soup.find_all(name="h3", class_="lister-item-header")
+movie_titles = [(movies.getText().replace("\n", "")) for movies in list_movies_bucket]
 
-
-
-
+with open("bs4/movies.txt", mode="w") as file:
+    for movie in movie_titles:
+        file.write(movie + "\n")
 
 
 
