@@ -1,4 +1,4 @@
-from numpy import tile
+
 import requests
 from bs4 import BeautifulSoup
 # date= input("Enter the date in the format YYYY-MM-DD: ")
