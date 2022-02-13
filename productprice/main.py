@@ -1,5 +1,4 @@
-from unittest import result
-from urllib import response
+
 import requests
 import lxml 
 from bs4 import BeautifulSoup
