@@ -23,7 +23,7 @@ item_ids = [item.get_attribute("id") for item in items]
 
 timeout = time.time() + 5
 
-five_min = time.time() +60*5
+five_min = time.time() + 60*5
 
 while True:
     cookie_pie.click()
