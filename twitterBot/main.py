@@ -1,5 +1,3 @@
-from ast import excepthandler
-from email import message
 from selenium import webdriver
 import os 
 import time
@@ -15,11 +13,7 @@ class InternetSpeedTwitterBot:
     def __init__(self,driver_path):
         self.driver= webdriver.Chrome(executable_path=driver_path)
         self.up = 0
-        self.down = 0
-    def get_info(self):
-        print(f"down: {self.down}")
-        print(f"up: {self.up}")
-        
+        self.down = 0        
     def get_internet_speed(self):
         self.driver.get("https://www.speedtest.net/")
         time.sleep(3)
@@ -76,5 +70,4 @@ class InternetSpeedTwitterBot:
         
 bot = InternetSpeedTwitterBot(chrome_driver_path)
 bot.get_internet_speed()
-bot.get_info()
 bot.tweet_at_provider()
