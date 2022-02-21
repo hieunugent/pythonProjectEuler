@@ -27,7 +27,5 @@ def sleephour():
     return '<h1 style="text-align:center"> sleep hour at 10 pm </h1>'
 
 
-
-
 if __name__ == '__main__':
     app.run()
