@@ -30,7 +30,7 @@ class InstaFollower:
         
     def find_follower(self):
         time.sleep(2)
-        self.driver.get('https://www.instagram.com/chefsteps/')
+        self.driver.get('https://www.instagram.com/interiordesignmag/')
         time.sleep(2)
         self.driver.find_element_by_xpath(
             '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/div').click()
