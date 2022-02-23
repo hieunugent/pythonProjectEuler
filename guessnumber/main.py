@@ -27,12 +27,23 @@ app = Flask(__name__)
 # @app.route('/9')
 # def nine():
 #     return '<iframe src="https://giphy.com/embed/FQpmX52vDfhja" width="400" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/animography-animated-typography-font-FQpmX52vDfhja">via GIPHY</a></p>'
-
+import random
+random_number = random.randint(0,9)
 @app.route('/')
 def startnumber():
     return '<iframe src = "https://giphy.com/embed/LnFnoEGtO6DlUYpyzm" width = "480" height = "480" frameBorder = "0" class = "giphy-embed" allowFullScreen> </iframe> <p> <a href="https://giphy.com/gifs/metro-lineas-metromadrid-LnFnoEGtO6DlUYpyzm" > via GIPHY </a> </p>'
-
-
+@app.route('/<int:guess>')
+def guess_number(guess):
+    if guess > random_number:
+        return "<h1>Too high! Guess again! </h1>"\
+            '<iframe src="https://giphy.com/embed/P8jmgo10wMngFsPG2V" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/master-keki-procrastinator-P8jmgo10wMngFsPG2V">via GIPHY</a></p>'
+    elif guess < random_number:
+        return "<h1>Too low! Guess again!</h1>"\
+        '<iframe src="https://giphy.com/embed/DMNqE0oBP2BEY" width="480" height="343" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/420-baked-DMNqE0oBP2BEY">via GIPHY</a></p>'
+    else:
+        return "<h1>You guessed it!</h1>" \
+            '<iframe src="https://giphy.com/embed/ITFQun020grZE5i4Bb" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/accurate-you-are-right-your-ITFQun020grZE5i4Bb">via GIPHY</a></p>'
+    
 
 
 if __name__ == '__main__':
