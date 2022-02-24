@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Blog</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% for blog_post in posts: %}
+            <h1>{{ blog_post.title }}</h1>
+          <p>{{ blog_post.subtitle }}</p>  
+        {% endfor %}
+    </body>
+</html>
