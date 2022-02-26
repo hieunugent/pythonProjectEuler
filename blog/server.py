@@ -1,8 +1,8 @@
 
 from flask import Flask, render_template
-import requests
-from post import Post
 
+from post import Post
+import requests
 
 posts = requests.get('https://api.npoint.io/3894d56cbf246dc4c5e2').json()
 post_objects = []
