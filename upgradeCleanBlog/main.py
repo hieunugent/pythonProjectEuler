@@ -2,8 +2,12 @@ from flask import Flask, render_template, request
 import requests
 import smtplib
 import os
-MYEMAIL=os.environ.get('TEST_EMAIL')
-PASSWORD=os.environ.get('TEST_PASSWORD')
+MY_EMAIL= os.environ.get('TEST_EMAIL')
+PASSWORD=''
+if os.environ.get('TEST_PASSWORD'):
+    PASSWORD= os.environ.get('TEST_PASSWORD')
+elif os.environ.get('TEST_PASS'):
+    PASSWORD= os.environ.get('TEST_PASS')
 
 posts = requests.get('https://api.npoint.io/3894d56cbf246dc4c5e2').json()
 app = Flask(__name__)
@@ -30,12 +34,13 @@ def contact():
     return render_template('contact.html', msg_sent=False)
     
 def send_email(name, email, phone, message):
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(MYEMAIL, PASSWORD)
-    format_form = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
-    server.sendmail(from_addr=MYEMAIL, to_addrs="henrynugent009@gmail.com", msg=format_form)
-    return "Email sent"
+    message_send= f"Subject:New Message \n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
+    with  smtplib.SMTP('smtp.gmail.com', 587) as server:
+        server.starttls()
+        server.login(MY_EMAIL, PASSWORD)
+        server.sendmail(from_addr=MY_EMAIL, to_addrs="henrynugent009@gmail.com",
+                        msg=message_send)
+    
     
     
     
