@@ -1,5 +1,3 @@
-
-from email import message
 from flask import Flask, render_template, request
 import requests
 
@@ -19,12 +17,12 @@ def about():
 def contact():
     if request.method =="POST":
         data = request.form
-        name = data['name']
-        email = data['email']
-        phone = data['phone']
-        message = data['message']
-        return "<h1>Thanks for contacting me. I will get back to you soon.</h1>"  
-    return render_template('contact.html')
+        print(data['name'])
+        print(data['email'])
+        print(data['phone'])
+        print(data['message'])
+        return render_template('contact.html', msg_sent=True) 
+    return render_template('contact.html', msg_sent=False)
     
     
 @app.route('/post/<int:index>')
