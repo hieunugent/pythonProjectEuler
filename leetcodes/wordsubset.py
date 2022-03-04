@@ -1,9 +1,5 @@
 def wordSubsets(self, A, B):
-    """
-    :type A: List[str]
-    :type B: List[str]
-    :rtype: List[str]
-    """
+  
     def count(word):
         ans = [0]*26
         for letter in word:
