@@ -12,3 +12,8 @@ def hello_world():
     print("hello_world")
 for i in range(5):  
     hello_world()
+
+import os
+
+TEST = os.environ.get('TEST_EMAIL')
+print(TEST)
