@@ -30,7 +30,7 @@ class InternetSpeedTwitterBot:
         )
         if close_ad:
             close_ad.click()
-            
+        # print(self.down)   
     def tweet_at_provider(self):
         self.driver.get("https://twitter.com/login")
        
