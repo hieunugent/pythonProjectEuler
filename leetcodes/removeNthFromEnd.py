@@ -1,4 +1,4 @@
-def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+def removeNthFromEnd(self, head, n):
 
     current = head
     length = 1
