@@ -3,7 +3,9 @@ def twosum(nums, target):
     for num in nums:
         candidate = target - num
         if candidate in keys:
-            return [candidate, num]
+            one = nums.index(candidate)
+            two = nums.index(num)
+            return [one, two]
         else:
             keys.append(num)
 
