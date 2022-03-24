@@ -1,11 +1,11 @@
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums):
         n = len(nums)
         result = [[]]
         for num in nums:
             result += [curr + [num] for curr in result]
         return result
-    def subsets2(self, nums: List[int]) -> List[List[int]]:
+    def subsets2(self, nums):
             def backtrack(first=0, curr=[]):
             if len(curr) == k:
                 output.append(curr[:])
