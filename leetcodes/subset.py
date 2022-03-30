@@ -6,7 +6,7 @@ class Solution:
             result += [curr + [num] for curr in result]
         return result
     def subsets2(self, nums):
-            def backtrack(first=0, curr=[]):
+        def backtrack(first=0, curr=[]):
             if len(curr) == k:
                 output.append(curr[:])
                 return 
@@ -15,8 +15,8 @@ class Solution:
                 backtrack(i+1, curr)
                 curr.pop()
             
-            output = []
-            n = len(nums)
-            for k in range(n+1):
+        output = []
+        n = len(nums)
+        for k in range(n+1):
                 backtrack()
-            return output
+        return output
