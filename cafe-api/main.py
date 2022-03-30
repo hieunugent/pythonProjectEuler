@@ -96,7 +96,19 @@ def get_cafe_at_location():
 # HTTP POST - Create Record
 
 # HTTP PUT/PATCH - Update Record
-
+@app.route("/update-price/<int:cafe_id>", methods=["GET","PATCH"])
+def update_price_at_cafe_id(cafe_id):
+    cafe = db.session.query(Cafe).get(cafe_id)
+  
+    if cafe:
+        new_price = request.args.get("new_price")
+        cafe.coffee_price = f"£{float(new_price)}"
+        db.session.commit()
+        return jsonify(response={"message": "Cafe price updated"}), 200
+    else:
+        return jsonify(error={"message": "No cafe found with that ID"}), 404
+        
+    
 # HTTP DELETE - Delete Record
 
 
