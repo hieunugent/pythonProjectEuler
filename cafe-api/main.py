@@ -1,4 +1,5 @@
 import random
+from urllib import response
 from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import requests
@@ -110,7 +111,20 @@ def update_price_at_cafe_id(cafe_id):
         
     
 # HTTP DELETE - Delete Record
-
+@app.route("/report-closed/<int:cafe_id>", methods=["DELETE"])
+def report_close_at_cafe_id(cafe_id):
+    api_key = request.args.get("api-key")
+    if api_key == "TopSecretAPIKey":
+        cafe = db.session.query(Cafe).get(cafe_id)
+        if cafe:
+            db.session.delete(cafe)
+            db.session.commit()
+            return jsonify(response={"Success":"Successfully delete the cafe from teh database"}), 200
+        else:
+            return jsonify(error={"Not Found": "Sorry a Cafe with that id was not found in the database."}), 404
+    else:
+        return jsonify(error={"Forbidden": "Sorry, That's not allowed. make sure you have the correct Api Key"}), 403
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
