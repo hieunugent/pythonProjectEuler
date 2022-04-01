@@ -54,9 +54,11 @@ def logout():
     pass
 
 
-@app.route('/download/<path:filename>')
-def download(filename):
-    return send_from_directory(directory='static/files', filename=filename, as_attachment=True)
+@app.route('/download/<path:file>')
+def download(file):
+    # depend on where the lib is install the directory will be set differently, for now path is replace for filename
+    return send_from_directory(directory="../flask-auth/static/files/", path="cheat_sheet.pdf")
+     
 
 
 if __name__ == "__main__":
