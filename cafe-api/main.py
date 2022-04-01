@@ -1,3 +1,4 @@
+from crypt import methods
 import random
 from urllib import response
 from flask import Flask, jsonify, render_template, request
@@ -74,7 +75,7 @@ def get_all_cafes():
     return all_cafes_json
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET"])
 def get_cafe_at_location():
     query_location = request.args.get("loc")
     cafe = db.session.query(Cafe).filter_by(location=query_location).first()
