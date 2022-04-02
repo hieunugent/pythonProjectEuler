@@ -35,6 +35,9 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method=="POST":
+        if User.query.filter_by(email=request.form.get('email')).first():
+            flash("Email already exists")
+            return redirect(url_for('login'))
         hash_and_salted_password = generate_password_hash(
             request.form.get('password'),
             method='pbkdf2:sha256',
