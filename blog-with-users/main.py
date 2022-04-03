@@ -1,3 +1,4 @@
+from os import abort
 from flask import Flask, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -8,6 +9,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import CreatePostForm, RegisterForm, LoginForm
 from flask_gravatar import Gravatar
+from functools import wraps
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -19,13 +21,23 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
+##CREATE ADMIN ONLY DECORATOR
+def admin_only(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if current_user.id !=1:
+            return abort(403)
+        return f(*args, **kwargs)
+    return decorated_function        
 ##CONFIGURE TABLES
 
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
+    
     id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(250), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    author = relationship("User", back_populates="posts")
+    # author = db.Column(db.String(250), nullable=False)
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
@@ -39,6 +51,8 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    posts = relationship("BlogPost", back_populates="author")
+    
 
 
 db.create_all()
@@ -56,13 +70,10 @@ def register():
         if User.query.filter_by(email=form.email.data).first():
             flash("Email already exists, login instead")
             return redirect(url_for('login'))
-        
-        
         hashed_password = generate_password_hash(
             form.password.data, 
             method='pbkdf2:sha256',
             salt_length=8)
-        
         new_user = User(
             name=form.name.data, 
             email=form.email.data, 
@@ -71,7 +82,8 @@ def register():
         db.session.commit()      
         login_user(new_user)
         return redirect(url_for('get_all_posts'))
-    return render_template("register.html", form= form)
+    
+    return render_template("register.html", form= form, )
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -119,7 +131,8 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/new-post")
+@app.route("/new-post", methods=['GET', 'POST'])
+@admin_only
 def add_new_post():
     form = CreatePostForm()
     if form.validate_on_submit():
@@ -134,10 +147,11 @@ def add_new_post():
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for("get_all_posts"))
-    return render_template("make-post.html", form=form)
+    return render_template("make-post.html", form=form, current_user=current_user)
 
 
 @app.route("/edit-post/<int:post_id>")
+@admin_only
 def edit_post(post_id):
     post = BlogPost.query.get(post_id)
     edit_form = CreatePostForm(
@@ -156,10 +170,11 @@ def edit_post(post_id):
         db.session.commit()
         return redirect(url_for("show_post", post_id=post.id))
 
-    return render_template("make-post.html", form=edit_form)
+    return render_template("make-post.html", form=edit_form, current_user=current_user)
 
 
 @app.route("/delete/<int:post_id>")
+@admin_only
 def delete_post(post_id):
     post_to_delete = BlogPost.query.get(post_id)
     db.session.delete(post_to_delete)
