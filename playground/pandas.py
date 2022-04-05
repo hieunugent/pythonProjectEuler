@@ -1,0 +1,7 @@
+# sort_values()
+# .head()
+# .tail()
+# .insert()
+# .min()
+# .idxmin()
+# .idxmax()
