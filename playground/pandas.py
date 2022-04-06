@@ -5,3 +5,5 @@
 # .min()
 # .idxmin()
 # .idxmax()
+# .count()
+# .sum()
