@@ -6,4 +6,8 @@
 # .idxmin()
 # .idxmax()
 # .count()
-# .sum()
+# .sum().
+
+# .shape
+# .fillna()
+# .isna().values.any() is any number in data NAN
