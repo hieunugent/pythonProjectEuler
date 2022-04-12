@@ -27,7 +27,8 @@ def upload_file():
         time.sleep(0.01)
     pgbar.destroy()
    
-   
+def display_image():
+    pass
 
 # UI/UX design for the watermark app
 ## ---------------------------- WATERMARK ------------------------------- #
