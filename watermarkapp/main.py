@@ -43,7 +43,6 @@ class App(tk.Tk):
         cdy = 100
         for x in os.listdir(f"pythonProjectEuler/watermarkapp/images"):
             if x.endswith(".jpg"):
-               
                self.display_photo(cdx, cdy, x)
                cdy += 100
                 # image = PIL.Image.open(f"pythonProjectEuler/watermarkapp/images/{x}")
