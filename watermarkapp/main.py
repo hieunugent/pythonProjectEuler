@@ -1,10 +1,13 @@
 import PIL.Image
 import PIL.ImageTk
+import PIL.ImageDraw
+import PIL.ImageFont
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
 from tkinter.ttk import *
 from tkinter.filedialog import askopenfilename
+import os
 
 class App(tk.Tk):
     def __init__(self):
@@ -17,10 +20,11 @@ class App(tk.Tk):
         self.button = ttk.Button(self, text="Open Image", command=self.open_file)
         self.button.pack()
         self.button.place(x=0, y=0)
-        self.display_picture = ttk.Button(self, text="Show Photos", command=self.create_widget)
+        self.watermark_content="Henrynugent.com"
+        self.display_picture = ttk.Button(self, text="Show Photos", command="")
         self.display_picture.pack()
         self.display_picture.place(x=80, y=0)
-        self.waterMark_button = ttk.Button(self, text="Watermark", command=lambda:self.create_widget)
+        self.waterMark_button = ttk.Button(self, text="Watermark", command=self.watermaker_all_picture)
         self.waterMark_button.pack()
         self.waterMark_button.place(x=160, y=0)        
     def open_file(self):
@@ -30,21 +34,27 @@ class App(tk.Tk):
             PIL.Image.open(file).save(
                 f"pythonProjectEuler/watermarkapp/images/{name}")
             
-    def create_widget(self):
+    def watermaker_all_picture(self):
         import os
-        cdx = 0
-        cdy = 100
         imageData= []
-        for x in os.listdir(f"pythonProjectEuler/watermarkapp/images"):
+        for x in os.listdir(f"pythonProjectEuler/watermarkapp/images/"):
             if x.endswith(".png"):
-               imageData.append([x,cdx,cdy])
-               cdx +=105 
-        print(imageData)
-        for item in imageData:
-            self.newButton = ImageButton(self, item[0], self.open_file)
-            self.Button_image(item, "Button"+str(item[0]).split('.')[0])
+                self.add_watermark(f"pythonProjectEuler/watermarkapp/images/{x}", "Henrynugent.com")
+                os.remove(f"pythonProjectEuler/watermarkapp/images/{x}")
             
-            
+    def add_watermark(self, image, watermark_content):
+        open_image = PIL.Image.open(image)
+        image_width, image_height = open_image.size
+        draw = PIL.ImageDraw.Draw(open_image)
+        font_size = int(image_width / 10)
+        font = PIL.ImageFont.truetype("arial.ttf", font_size)
+        text_width, text_height = draw.textsize(watermark_content, font=font)
+        x = int(image_width/2)
+        y = int(image_height/2)
+        draw.text((x, y), watermark_content, font=font, fill=(255, 255, 255, 255), stroke_fill="grey", anchor="ms")
+        name = image.split('/')[-1]
+        open_image.save(f"pythonProjectEuler/watermarkapp/watermarked_photo/{name}")
+         
                   
     def display_photo(self,data):
             self.canvas = Canvas(self, width=99, height=99, bg="white")
