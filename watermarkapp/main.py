@@ -15,8 +15,7 @@ class App(tk.Tk):
         self.title("Watermark")
         self.geometry("1000x900")
         self.configure(background='grey')
-        # all the labels
-        # all the buttons
+
         self.button = ttk.Button(self, text="Open Image", command=self.open_file)
         self.button.pack()
         self.button.place(x=0, y=0)
