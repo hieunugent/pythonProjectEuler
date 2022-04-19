@@ -1,6 +1,6 @@
 from turtle import Turtle
 STARTING_POSITION = (0,-400)
-MOVE_DISTANCE = 10
+MOVE_DISTANCE = 30
 
 class Player(Turtle):
     def __init__(self):
@@ -10,14 +10,17 @@ class Player(Turtle):
         self.color("gray")
         self.penup()
         self.goto(STARTING_POSITION)
-        self.speed(0)
-        
-        
+        self.speed(0) 
     def go_left(self):
         self.backward(MOVE_DISTANCE)
-        
     def go_right(self):
         self.forward(MOVE_DISTANCE)
+    def collision(self, ball_location):
+        if self.distance(ball_location)<=20:
+            return True
+        else:
+            return False
+        
         
    
         

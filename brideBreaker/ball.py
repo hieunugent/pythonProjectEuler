@@ -7,13 +7,14 @@ class Ball:
         self.ball.color("red")
         self.ball.penup()
         self.ball.goto(0,-300)
+        
     def speedup(self):
         self.speed(self.speed()+1)
-    def move_ball_turnleft(self):
+    def rotate_left(self):
         self.ball.left(45)
-    def move_ball_turnright(self):
+    def rotate_right(self):
         self.ball.right(45)
-    def move_ball_forward(self):
+    def move(self):
         self.ball.forward(10)
-    def move_ball_backward(self):
-        self.ball.backward(10)
+    def location(self):
+        return (self.ball.pos())
