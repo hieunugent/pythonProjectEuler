@@ -10,10 +10,10 @@ class Ball:
         
     def speedup(self):
         self.speed(self.speed()+1)
-    def rotate_left(self):
-        self.ball.left(45)
-    def rotate_right(self):
-        self.ball.right(45)
+    def rotate_left(self, degree):
+        self.ball.left(degree)
+    def rotate_right(self, degree):
+        self.ball.right(degree)
     def move(self):
         self.ball.forward(10)
     def location(self):
