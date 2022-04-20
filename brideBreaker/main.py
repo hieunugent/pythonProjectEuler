@@ -1,5 +1,5 @@
-import secrets
-from turtle import Screen, bgcolor
+
+from turtle import Screen 
 import time
 
 from player import Player 
@@ -11,13 +11,11 @@ screen.bgcolor("grey")
 screen.tracer(0)
 player = Player()
 ball  = Ball()
+bridge = Bridge()
 
 screen.listen()
 screen.onkey(player.go_left, "Left")
 screen.onkey(player.go_right, "Right")
-bridge = Bridge()
-bridge.create_all_bridge()
-
 game_is_running = True
 ball.rotate_left(45)
 ball.rotate_left(45)
@@ -26,13 +24,15 @@ while game_is_running:
     screen.update()
     ball.move()
     if bridge.check_match(ball.location()):      
-        ball.rotate_left(45) 
+        ball.rotate_left(60) 
     if player.collision(ball.location()):
-        ball.rotate_right(45)    
-    if ball.location()[0]>=400:
-        ball.rotate_left(45)
-    if ball.location()[0]<=-400:
-        ball.rotate_right(45)
-    if ball.location()[1]>=400:
-        ball.rotate_right(45)
+        ball.rotate_right(69)    
+    if ball.location()[0]>=450:
+        ball.rotate_left(65)
+    elif ball.location()[0]<=-450:
+        ball.rotate_right(65)
+    elif ball.location()[1]>=450:
+        ball.rotate_right(65)
+    elif ball.location()[1]<=-450:
+        ball.rotate_left(65)
     time.sleep(0.1)
