@@ -1,3 +1,4 @@
+import secrets
 from turtle import Screen, bgcolor
 import time
 
@@ -18,7 +19,6 @@ bridge = Bridge()
 bridge.create_all_bridge()
 
 game_is_running = True
-
 ball.rotate_left(45)
 ball.rotate_left(45)
 

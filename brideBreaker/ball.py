@@ -1,11 +1,12 @@
 from turtle import Turtle
-
+SPEED_MOVING= 20
 class Ball:
     def __init__(self):
         self.ball = Turtle()
-        self.ball.shape("circle")
-        self.ball.color("red")
         self.ball.penup()
+        self.ball.shape("circle")
+        self.ball.color("black")
+        
         self.ball.goto(0,-300)
         
     def speedup(self):
@@ -15,6 +16,6 @@ class Ball:
     def rotate_right(self, degree):
         self.ball.right(degree)
     def move(self):
-        self.ball.forward(10)
+        self.ball.forward(SPEED_MOVING)
     def location(self):
         return (self.ball.pos())
