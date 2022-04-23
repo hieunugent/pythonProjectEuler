@@ -5,6 +5,7 @@ from tkinter import Canvas, ttk
 from sqlalchemy import true
 from text import array_text
 import random
+import time
 class App(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
@@ -12,8 +13,9 @@ class App(tk.Frame):
         self.master.title("Word Speed")
         self.master.geometry("800x800")
         self.master.maxsize(800, 800) 
-        self.typing_content()
-        self.typing_speed()
+        my_text= self.typing_content()
+        contenttype=self.typing_speed()
+        self.checkresult(contenttype, my_text)
         self.pack()
     def typing_content(self):
         canvas = Canvas(self.master, width=800, height=350, bg="lightgrey")  
@@ -29,13 +31,14 @@ class App(tk.Frame):
             count += 1 
         canvas.create_text(400,180, text=my_text,  font=("Helvetica", "12"))
         canvas.pack()
+        return my_text
     def typing_speed(self):
-        canvas = Canvas(self.master, width=800, height=350, bg="grey")
-        textbox = tk.Entry(canvas, textvariable=tk.StringVar(), width=100)
-        textbox.grid(row=0, sticky="N"+"S")
-        canvas.pack()
-        textbox.pack()  
-
+            canvas = Canvas(self.master, width=800, height=350, bg="grey")
+            textbox = tk.Entry(canvas, textvariable=tk.StringVar(), width=100)
+            textbox.grid(row=0, sticky="N"+"S")
+            canvas.pack()
+            textbox.pack()  
+            return textbox
 
 if __name__ == '__main__':
     root = tk.Tk()
