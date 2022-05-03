@@ -1,3 +1,6 @@
+from lib2to3.pytree import Node
+
+
 class TriesNode:
     def __init__(self):
         self.children = {}
@@ -9,3 +12,8 @@ class TriesNode:
             else:
                 self.collectAllWord(childNode, word+key, words)
         return words
+    def autocomplete(self, prefix):
+        currentNode = self.search(prefix)
+        if not currentNode:
+            return Node
+        return self.collectAllWord(currentNode)
