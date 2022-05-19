@@ -33,3 +33,5 @@
 # Counter🧮🧮 
 - general purpose built-ins like dictionaries, list and tuples
 - subclass which is used to count hashable object 
+# trie🧮
+- 
