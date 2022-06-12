@@ -1,14 +1,15 @@
 def lengthOfLongestSubstring(s):
-        longStr = 0
-        for i in range( len(s)-1):
-            array=[]
-            array.append(s[i])
-            for j in range(i , len(s)-1):
-                if s[j] in array:
-                    if len(array) > longStr:
-                        longStr = len(array)
-                    break
+        currentMax = 0
+        for i in range(len(s)):
+            result = []
+            result.append(s[i])
+            for j in range(i+1, len(s)):
+                if s[j] not in result:
+                    result.append(s[j])
                 else:
-                    array.append(s[j])
-                    
-        return longStr
+                    if len(result) > currentMax:
+                        currentMax = len(result)
+                    break
+            if len(result) > currentMax:
+                 currentMax = len(result)
+        return currentMax
