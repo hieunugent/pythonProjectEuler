@@ -1,4 +1,4 @@
- def lengthOfLongestSubstring(self, s):
+def lengthOfLongestSubstring(s):
         longStr = 0
         for i in range( len(s)-1):
             array=[]
