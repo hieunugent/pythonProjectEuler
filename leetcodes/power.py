@@ -11,4 +11,4 @@ def power(x:float, y:float)-> float:
         power = power >> 1
     return result
     
-print(power(3,3))
+print(power(10,3))
