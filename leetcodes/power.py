@@ -7,7 +7,7 @@ def power(x:float, y:float)-> float:
     while power:
         if power &1:
             result *= x
-        x = x *x
+        x = x * x
         power = power >> 1
     return result
     
