@@ -50,3 +50,4 @@ while curr_depth_node:
 # 
 
 
+print(6^1)
