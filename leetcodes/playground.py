@@ -48,6 +48,7 @@ while curr_depth_node:
 # lONGEST Increasing subsequence
 # 
 # 
+mask=0xffffffff
 
-
-print(6^1)
+print(mask/2)
+print(~(7))
