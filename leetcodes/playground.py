@@ -49,6 +49,3 @@ while curr_depth_node:
 # 
 # 
 mask=0xffffffff
-
-print(mask/2)
-print(~(7))
