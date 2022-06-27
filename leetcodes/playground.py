@@ -49,3 +49,4 @@ while curr_depth_node:
 # 
 # 
 mask=0xffffffff
+print(0xf)
