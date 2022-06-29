@@ -80,7 +80,6 @@ def buildPrime(value):
     while True:
         if isPrime(num):
             count += 1
-
         if count == value:
             return num
         num += 1
@@ -116,6 +115,17 @@ def specialPythagorean():
                     break
     
 
+def sumPrime(value):
+    result = 0
+    num = 2
+    while True:
+        if isPrime(num):
+            if num < value:
+                result += num
+            else:
+                return result
+        num += 1
+print(sumPrime(2000000))  
 
     
     
