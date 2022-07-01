@@ -214,27 +214,28 @@ def generateTriangle(limits):
     target = int(limits)
     limit = (target//2)**2
     answer = None
-    value = 0
+
     def is_even(n):
         if n %2 ==0:
             return True
         else:
             return False  
     print(limit)
-    for n in range(1, limit-1):
+    n = 1
+    while True:
         print("Enter the loop")
         if is_even(n):
             n_divisors = checkDivision(n//2)*checkDivision(n+1)
         else:
             n_divisors = checkDivision(n)*checkDivision((n+1)//2)
         print(n_divisors, target)
-        value = n 
         if n_divisors > target:
             answer = n*(n+1)//2
             break
-    return value*(value+1)//2
+        n +=1
+    return answer
 
 
-print(generateTriangle(5))
+print(generateTriangle(500))
 
  
