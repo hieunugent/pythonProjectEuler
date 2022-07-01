@@ -202,8 +202,8 @@ def largest_product_grid(data):
                 result = temp_result
     print(result)
     
-def generateTriangle(valuelimit):
-    def checkdivison(num):
+def generateTriangle(limits):
+    def checkDivision(num):
         result = 0
         start = num
         while start > 0:
@@ -211,12 +211,30 @@ def generateTriangle(valuelimit):
                 result +=1
             start-=1
         return result
-    currNaturalNum = 1
-    striangle = currNaturalNum
-    while True:
-        striangle += currNaturalNum
-        currNaturalNum +=1
-        if checkdivison(striangle) >= valuelimit:
-            return striangle
+    target = int(limits)
+    limit = (target//2)**2
+    answer = None
+    value = 0
+    def is_even(n):
+        if n %2 ==0:
+            return True
+        else:
+            return False  
+    print(limit)
+    for n in range(1, limit-1):
+        print("Enter the loop")
+        if is_even(n):
+            n_divisors = checkDivision(n//2)*checkDivision(n+1)
+        else:
+            n_divisors = checkDivision(n)*checkDivision((n+1)//2)
+        print(n_divisors, target)
+        value = n 
+        if n_divisors > target:
+            answer = n*(n+1)//2
+            break
+    return value*(value+1)//2
 
-print(generateTriangle(500))     
+
+print(generateTriangle(5))
+
+ 
