@@ -2,6 +2,8 @@ from itertools import product
 from turtle import down, st
 from unittest import result
 
+from attr import s
+
 
 def fibEvenSum():
     previous = 1
@@ -297,4 +299,77 @@ def problem15(target):
                 grid[i][j] = grid[i-1][j] + grid[i][j-1]
            
     return grid[target][target]
-print(problem15(20))
+def problem16(power):
+    sum = 0
+    num = 2<<power-1
+    while num//10> 0:
+        sum += num%10
+        num = num//10
+    if num > 0:
+        sum += num
+    return sum
+        
+def problem17(limit):
+    nums = []
+    for i in range(1, 1000+1):
+        nums.append(i)
+    def convertWord(num):
+        dict ={0:"",  1:"one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six", 7:"seven", 8:"eight", 9:"nine"}
+        dictPhase2 = {0: "",  1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen"}
+        dictPhase3 ={2:"twenty", 3:"thirty", 4:"forty", 5:"fifty", 6:"sixty", 7:"seventy", 8:"eighty", 9:"ninety"}
+        thousand = "thousand"
+        hundred = "hundred"
+        value = []
+        if num == 1000:
+          value.append(dict[1])
+          value.append(thousand)  
+        else:
+            if num//100 > 0:
+                value.append(dict[num//100])
+                value.append(hundred)
+            if num > 100 and num%100>0:
+                value.append("and")
+            if num%100>0 and num >=10:
+                if num %100 < 20 :
+                    value.append(dictPhase2[num%20])
+                else:
+                    value.append(dictPhase3[(num%100)//10])
+                    if (num % 100) % 10 != 0:
+                        value.append(dict[(num%100)%10])
+            if num%10 >0 and num < 10:
+                value.append(dict[num])   
+        return value
+    def calculateLetter(words):
+        result = 0
+        for i in words:
+            result +=len(i)
+        return result
+    def solve(limit):
+        result = 0
+        for i in range (1, limit+1):
+            result += calculateLetter(convertWord(i))
+        print(result)
+    print(convertWord(limit))
+    print(calculateLetter(convertWord(limit)))
+    solve(limit)
+
+def problem18():
+    data = [
+        [75],
+        [95, 64],
+        [17, 47, 82],
+        [18, 35, 87, 10],
+        [20,  4, 82, 47, 65],
+        [19,  1, 23, 75,  3, 34],
+        [88,  2, 77, 73,  7, 63, 67],
+        [99, 65,  4, 28,  6, 16, 70, 92],
+        [41, 41, 26, 56, 83, 40, 80, 70, 33],
+        [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
+        [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
+        [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
+        [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
+        [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
+        [4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23]
+    ]
+    
+problem18()
