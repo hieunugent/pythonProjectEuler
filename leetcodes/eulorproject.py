@@ -352,7 +352,7 @@ def problem17(limit):
     print(convertWord(limit))
     print(calculateLetter(convertWord(limit)))
     solve(limit)
-
+from time import process_time
 def problem18():
     data = [
         [75],
@@ -371,5 +371,11 @@ def problem18():
         [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
         [4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23]
     ]
+    i = len(data)-1
+    while i > 0:
+        for j in range(1, len(data[i])):
+            data[i-1][j-1] += max(data[i][j], data[i][j-1]) 
+        i -=1               
+    print( data[0][0])       
+def problem19():
     
-problem18()
