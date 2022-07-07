@@ -1,4 +1,5 @@
 from itertools import product
+from os import curdir
 from turtle import down, st
 from unittest import result
 
@@ -376,21 +377,107 @@ def problem18():
         for j in range(1, len(data[i])):
             data[i-1][j-1] += max(data[i][j], data[i][j-1]) 
         i -=1               
-    print( data[0][0])       
-def problem19():
-    def isLeapYear(year):
-        if year%4 == 0:
-            if (year%100 ==0):
-                if year%400 == 0:
-                    return True
-                else:
-                    return False
-            else:
-                return True
-        else:
-            return False
-    
-    
+    print( data[0][0])    
+class  Date(object):
+    def __init__(self, day: int, month: int , year: int):
+        assert isinstance(day, int),"day must be integer"
+        assert isinstance(month,  int), "Month must be Integer"
+        assert isinstance(year, int), " Year must be Integer"
+        assert 1 <= day <= 31, " day must be in range[1, 31]"
+        assert 1 <= month <= 12 , "month must be in [1, 12]"
+        assert 0 <= year <=9999, "year must be in [0,9999]"
         
+        self.day = day
+        self.month = month
+        self.year = year
+    def __str__(self):
+        return "{}/{}/{}".format(self.day, self.month, self.year)
+    
+    def __le__(self, other:'Date'):
+        if isinstance(other, Date):
+            if self.year < other.year:
+                return True
+            elif self.year == other.year and self.month < other.month:
+                return True
+            elif self.month == other.month and self.day < other.day:
+                return True
+        return False   
+    def __add__(self, other:int):
+        if not isinstance(other, int):
+            raise TypeError("Unsupported operand type(s) for +")
+        rv = Date(self.day, self.month, self.year)
+        if rv.day + other > Date.days_of_month(rv.month, rv.year):
+            other -= Date.days_of_month(rv.month, rv.year) -rv.day
+            rv.day = 0
+            rv.month +=1
+        if rv.month > 12:
+            rv.month = 1
+            rv.year +=1
+        rv.day += other
+        return rv
+        
+    @staticmethod
+    def isLeapYear(year):
+        return ((year%4)==0) and (((year%100)!=0) or ((year%400)==0))
+    @staticmethod
+    def days_of_month(month, year):
+        standard_days = [31, 28,31, 30, 31, 30, 31, 31,30, 31, 30, 31 ]
+        if month == 2 and Date.isLeapYear(year):
+            return 29
+        else:
+            return standard_days[month-1]
+        
+def problem19():   
+    lower_bound = Date(1,1,1901)
+    upper_bound = Date(31,12, 2000)
+    current_date = Date(1, 1, 1900)
+    answer = 0
+    
+    current_date +=6
+    while current_date <= lower_bound:
+        current_date +=7
+    while current_date <=upper_bound:
+        if current_date.day==1:
+            answer+=1
+        current_date+=7
+    return answer
+    
+    
+def problem20():
+    def factorial(num):
+        if num == 1 or num == 0:
+            return 1
+        else:
+            return num * factorial(num-1)
+    def sumFactorial(num):
+        sum = 0
+        while num > 0:
+            sum += num%10
+            num = num//10
+        return sum
+    fac = factorial(100)
+    return sumFactorial(fac)
+    
             
-
+def problem21():
+    def d(num):
+        result = []
+        for i in range(1, num):
+            if num%i== 0:
+                result.append(i)
+        return sum(result)
+    d_val= []
+    for i in range(1, 10000):
+        d_val.append(d(i))
+    amicable_number = set()
+    for n , d_n in enumerate(d_val):
+        if d_n < len(d_val):
+            if d_n in d_val and d_val[d_n] == n and n != d_n:
+                amicable_number.add(n)
+                amicable_number.add(d_n)
+    print(sum(amicable_number))
+        
+           
+    
+    
+problem21()
