@@ -476,8 +476,3 @@ def problem21():
                 amicable_number.add(n)
                 amicable_number.add(d_n)
     print(sum(amicable_number))
-        
-           
-    
-    
-problem21()
