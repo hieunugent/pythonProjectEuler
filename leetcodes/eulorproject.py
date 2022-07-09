@@ -469,11 +469,10 @@ def problem21():
     d_val= {}
     for i in range(1, 10000):
         d_val[i] = d(i)
-    print(d_val)
+   
     amicable_number = set()
     for n , d_n in d_val.items():
         if d_n in d_val and d_val[d_n] == n and n != d_n:
                     amicable_number.add(n)
                     amicable_number.add(d_n)             
     print(sum(amicable_number))
-problem21()
