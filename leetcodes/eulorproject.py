@@ -466,13 +466,14 @@ def problem21():
             if num%i== 0:
                 result.append(i)
         return sum(result)
-    d_val= []
+    d_val= {}
     for i in range(1, 10000):
-        d_val.append(d(i))
+        d_val[i] = d(i)
+    print(d_val)
     amicable_number = set()
-    for n , d_n in enumerate(d_val):
-        if d_n < len(d_val):
-            if d_n in d_val and d_val[d_n] == n and n != d_n:
-                amicable_number.add(n)
-                amicable_number.add(d_n)
+    for n , d_n in d_val.items():
+        if d_n in d_val and d_val[d_n] == n and n != d_n:
+                    amicable_number.add(n)
+                    amicable_number.add(d_n)             
     print(sum(amicable_number))
+problem21()
