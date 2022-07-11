@@ -476,3 +476,23 @@ def problem21():
                     amicable_number.add(n)
                     amicable_number.add(d_n)             
     print(sum(amicable_number))
+
+ 
+aphabet = "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z"
+aphabet = aphabet.split(", ")
+namepages = open("leetcodes/names.txt")
+names = []
+for line in namepages:
+    names = line.replace('"', '').split(',')
+for index, name in enumerate(names):
+    if name == "COLIN":
+        print(index)
+
+def score(name):
+    result = 0
+    for i in name:
+       result += aphabet.index(i)+1
+    return result
+print(score("COLIN"))
+def problem22(num):
+    pass
