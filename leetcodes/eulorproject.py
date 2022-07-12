@@ -484,15 +484,39 @@ namepages = open("leetcodes/names.txt")
 names = []
 for line in namepages:
     names = line.replace('"', '').split(',')
-for index, name in enumerate(names):
-    if name == "COLIN":
-        print(index)
+
+      
 
 def score(name):
     result = 0
     for i in name:
        result += aphabet.index(i)+1
     return result
-print(score("COLIN"))
-def problem22(num):
-    pass
+
+
+def problem22(names):
+    sum = 0
+    names.sort()
+    for pos, name in enumerate(names):
+        sum += (pos+1)*score(name)
+    print(sum)
+def problem23():
+    def sumDivisor(num):
+        sum = 0
+        for i in range(1, num):
+            if num%i == 0:
+                sum+= i
+        return sum
+            
+    def abundantNum(limit):
+        allAbundant = []
+        answer = 0
+        for i in range(1, limit):
+            if sumDivisor(i) > i:
+                allAbundant.append(i)
+            if not any((i -a in allAbundant) for a in allAbundant):
+                answer +=i
+        print(answer)
+    abundantNum(28123)
+problem23()  
+
