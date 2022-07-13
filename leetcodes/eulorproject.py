@@ -518,5 +518,54 @@ def problem23():
                 answer +=i
         print(answer)
     abundantNum(28123)
-problem23()  
 
+def problem25():
+    from itertools import permutations
+    perm = permutations([0,1,2,3,4,5,6,7,8,9])
+    count = 1
+    for i in list(perm):
+        if count >= 1000000:
+            print(i)
+            break
+        count+=1
+def permutation():
+    global value
+    value = []
+    def helpPermutation(array, size):
+        if size == 1:
+            print(array)
+            value.append(array)
+            return 
+        for i in range(size):
+            helpPermutation(array, size-1)
+            if size&1:
+                array[0], array[size-1] = array[size-1], array[0]
+            else:
+                array[i], array[size-1] = array[size-1], array[i]
+    a = [0,1,2]
+    n = len(a)
+   
+    helpPermutation(a, n)
+    print(value)
+def problem25():
+    def numDigits(num):
+        count = 1
+        while num//10 > 0:
+            num  = num//10
+            count+=1
+        return count 
+    fib = [1,1]
+    def fibGenerate(fib):
+        n = len(fib)   
+        fib.append(fib[n-1]+fib[n-2])
+        return fib
+    while numDigits(fib[-1])< 1000:
+        fib = fibGenerate(fib)
+        
+    print( len(fib))
+    
+    
+    
+    
+    
+problem25()
