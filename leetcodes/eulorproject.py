@@ -563,9 +563,36 @@ def problem25():
         fib = fibGenerate(fib)
         
     print( len(fib))
+def problem26():
+    def fractionToDecimal(numerator,denominator):
+        sign = '-' if numerator * denominator < 0 else ''
+        quotient, remainder = divmod(abs(numerator), abs(denominator))
+        result_list = [sign, str(quotient), '.']
+        remainders = []
+        while remainder not in remainders:
+            remainders.append(remainder)
+            quotient, remainder = divmod(remainder*10, abs(denominator))
+            result_list.append(str(quotient))
+        idx = remainders.index(remainder)
+        result_list.insert(idx + 3, '(')
+        result_list.append(')')
+        result = ''.join(result_list).replace('(0)', '').rstrip('.')
+        return result
+    value = []
+    currentMax = ""
+    index = 0
+    for i in range(2, 1000):
+        num = fractionToDecimal(1, i)
+        if "(" in num and ")" in num:
+            value.append(num)
+            if len(currentMax) < len(num):
+                currentMax = num
+                index = i
+    print(index)
+problem26()    
+        
     
-    
-    
-    
-    
-problem25()
+        
+        
+
+
