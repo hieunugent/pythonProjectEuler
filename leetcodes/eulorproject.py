@@ -589,7 +589,9 @@ def problem26():
                 currentMax = num
                 index = i
     print(index)
-problem26()    
+def problem27():
+    pass
+    
         
     
         
