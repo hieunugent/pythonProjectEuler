@@ -590,6 +590,8 @@ def problem26():
                 index = i
     print(index)
 def problem27():
+    def nextPrime():
+        pass
     pass
     
         
