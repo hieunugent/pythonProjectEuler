@@ -592,7 +592,8 @@ def problem26():
 def problem27():
     def nextPrime():
         pass
-    pass
+    def solve():
+        pass
     
         
     
