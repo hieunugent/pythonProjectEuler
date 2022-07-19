@@ -590,10 +590,11 @@ def problem26():
                 index = i
     print(index)
 def problem27():
-    def nextPrime():
+    def primeGenerate(limit):
         pass
     def solve():
-        pass
+        range_limit = 1000
+        primes = primeGenerate(range_limit)
     
         
     
