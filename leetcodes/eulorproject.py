@@ -590,15 +590,25 @@ def problem26():
                 index = i
     print(index)
 def problem27():
+    def isPrime(num):
+        for i in range(2,num):
+            if num%i ==0:
+                return False
+        return True
+        
     def primeGenerate(limit):
-        pass
+        result = []
+        for i in range(2, limit+1):
+            if isPrime(i):
+                result.append(i)
+        return result
     def solve():
         range_limit = 1000
         primes = primeGenerate(range_limit)
+    result = primeGenerate(30)
+    print(result)   
     
-        
-    
-        
+problem27()  
         
 
 
