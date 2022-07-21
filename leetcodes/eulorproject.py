@@ -596,8 +596,7 @@ def problem27():
                 return False
         return True
         
-    def primeGenerate(limit):
-        result = []
+
         for i in range(2, limit+1):
             if isPrime(i):
                 result.append(i)
@@ -605,10 +604,5 @@ def problem27():
     def solve():
         range_limit = 1000
         primes = primeGenerate(range_limit)
-    result = primeGenerate(30)
-    print(result)   
+  
     
-problem27()  
-        
-
-
