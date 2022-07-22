@@ -1,5 +1,7 @@
 from itertools import product
+from math import ceil
 from os import curdir
+from sys import maxsize
 from turtle import down, st
 from unittest import result
 
@@ -597,13 +599,33 @@ def problem27():
         return True
         
     def primeGenerate(limit):
+        result=[]
         for i in range(2, limit+1):
             if isPrime(i):
                 result.append(i)
         return result
+    def find_n_prime(a, b):
+        n = 1
+        while isPrime(n**2+a*n+b):
+            n+=1
+        return n
     def solve():
+        from math import ceil, log
         range_limit = 1000
+        maxsize = 2**int(ceil(log(2*range_limit, 2)))
         primes = primeGenerate(range_limit)
-  
-    
+        max_n_prime = 0
+        for b,p in product(primes, repeat=2):
+            a = p-b-1
+            new_n_prime = find_n_prime(a, b)
+            if new_n_prime > max_n_prime:
+                max_n_prime = new_n_prime
+                best = a, b
+        a, b = best
+        
+        answer = a*b
+        
+        return answer
+    print(solve())
 problem27()
+
