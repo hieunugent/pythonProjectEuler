@@ -1,3 +1,4 @@
+
 from itertools import product
 from math import ceil
 from os import curdir
@@ -604,6 +605,8 @@ def problem27():
             if isPrime(i):
                 result.append(i)
         return result
+    from typing import Callable
+   
     def find_n_prime(a, b):
         n = 1
         while isPrime(n**2+a*n+b):
@@ -613,6 +616,7 @@ def problem27():
         from math import ceil, log
         range_limit = 1000
         maxsize = 2**int(ceil(log(2*range_limit, 2)))
+        print(maxsize)
         primes = primeGenerate(range_limit)
         max_n_prime = 0
         for b,p in product(primes, repeat=2):
@@ -622,10 +626,14 @@ def problem27():
                 max_n_prime = new_n_prime
                 best = a, b
         a, b = best
-        
         answer = a*b
-        
         return answer
+    
+    
+    
     print(solve())
+    
+    
+
 problem27()
 
