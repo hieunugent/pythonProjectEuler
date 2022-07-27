@@ -628,10 +628,12 @@ def problem27():
         a, b = best
         answer = a*b
         return answer
-    
-    
-        
-    print(solve())
+    def tryValue(n):
+        num = n*n -79*n +1601
+        return num
+    for i in range(0, 80):
+        print(isPrime(tryValue(i)))
+
     
     
 
