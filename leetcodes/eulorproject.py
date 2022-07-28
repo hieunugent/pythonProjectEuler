@@ -633,6 +633,7 @@ def problem27():
         return num
     for i in range(0, 80):
         print(isPrime(tryValue(i)))
+        
 
     
     
