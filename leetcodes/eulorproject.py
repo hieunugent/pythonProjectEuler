@@ -605,34 +605,29 @@ def problem27():
             if isPrime(i):
                 result.append(i)
         return result
-    from typing import Callable
-   
     def find_n_prime(a, b):
         n = 1
         while isPrime(n**2+a*n+b):
             n+=1
         return n
     def solve():
-        from math import ceil, log
         range_limit = 1000
-        maxsize = 2**int(ceil(log(2*range_limit, 2)))
-        print(maxsize)
         primes = primeGenerate(range_limit)
         max_n_prime = 0
         for b,p in product(primes, repeat=2):
             a = p-b-1
+            print(a)
             new_n_prime = find_n_prime(a, b)
             if new_n_prime > max_n_prime:
                 max_n_prime = new_n_prime
                 best = a, b
         a, b = best
+        print(find_n_prime(a,b))
+        print(best)
         answer = a*b
         return answer
-    def tryValue(n):
-        num = n*n -79*n +1601
-        return num
-    for i in range(0, 80):
-        print(isPrime(tryValue(i)))
+    print(solve())
+   
         
 
     
