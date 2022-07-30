@@ -604,7 +604,7 @@ def problem27():
             if isPrime(i):
                 result.append(i)
         return result
-    def find_n_prime(a, b):
+    def find_n_prime(p, a, b):
         n = 1
         while isPrime(n**2+a*n+b):
             n+=1
@@ -613,16 +613,19 @@ def problem27():
         range_limit = 1000
         primes = primeGenerate(range_limit)
         max_n_prime = 0
-        for b in primes:
-            for p in primes:
+        for p in primes:
+            for b in primes:
                     a = p-b-1
                     # print(a)
-                    new_n_prime = find_n_prime(a, b)
+                    new_n_prime = find_n_prime(p, a, b)
+                    
                     if new_n_prime > max_n_prime:
                         max_n_prime = new_n_prime
+                        print(max_n_prime)
                         best = a, b
+                        answer = a*b
+                        print( answer)
         a, b = best
-        print(find_n_prime(a,b))
         print(best)
         answer = a*b
         print( answer)
