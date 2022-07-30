@@ -6,7 +6,6 @@ from sys import maxsize
 from turtle import down, st
 from unittest import result
 
-from attr import s
 
 
 def fibEvenSum():
@@ -614,21 +613,22 @@ def problem27():
         range_limit = 1000
         primes = primeGenerate(range_limit)
         max_n_prime = 0
-        for b,p in product(primes, repeat=2):
-            a = p-b-1
-            print(a)
-            new_n_prime = find_n_prime(a, b)
-            if new_n_prime > max_n_prime:
-                max_n_prime = new_n_prime
-                best = a, b
+        for b in primes:
+            for p in primes:
+                    a = p-b-1
+                    # print(a)
+                    new_n_prime = find_n_prime(a, b)
+                    if new_n_prime > max_n_prime:
+                        max_n_prime = new_n_prime
+                        best = a, b
         a, b = best
         print(find_n_prime(a,b))
         print(best)
         answer = a*b
-        return answer
-    print(solve())
+        print( answer)
+    solve()
    
-        
+
 
     
     
