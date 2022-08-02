@@ -614,24 +614,23 @@ def problem27():
         range_limit = 1000
         primes = primeGenerate(range_limit)
         max_n_prime = 0
-        for b,p in product(primes, repeat=2):
+        for b, p in product(primes, repeat=2):
             a = p-b-1
-            print(a)
             new_n_prime = find_n_prime(a, b)
             if new_n_prime > max_n_prime:
                 max_n_prime = new_n_prime
                 best = a, b
+                print(best)
+                print(a*b)
         a, b = best
-        print(find_n_prime(a,b))
-        print(best)
         answer = a*b
         return answer
     print(solve())
    
-        
+def factorial(n, i=1, product=1):
+    if n < i:
+        return product
+    factorial(n, i+1, product*i)
 
-    
-    
-
-problem27()
+print(factorial(6, 1, 1))
 
