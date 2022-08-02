@@ -6,7 +6,6 @@ from sys import maxsize
 from turtle import down, st
 from unittest import result
 
-from attr import s
 
 
 def fibEvenSum():
@@ -605,7 +604,7 @@ def problem27():
             if isPrime(i):
                 result.append(i)
         return result
-    def find_n_prime(a, b):
+    def find_n_prime(p, a, b):
         n = 1
         while isPrime(n**2+a*n+b):
             n+=1
@@ -624,8 +623,8 @@ def problem27():
                 print(a*b)
         a, b = best
         answer = a*b
-        return answer
-    print(solve())
+        print( answer)
+    solve()
    
 def factorial(n, i=1, product=1):
     if n < i:
