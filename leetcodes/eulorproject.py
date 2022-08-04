@@ -629,7 +629,7 @@ def problem27():
 def factorial(n, i=1, product=1):
     if n < i:
         return product
-    factorial(n, i+1, product*i)
+    return factorial(n, i+1, product*i)
 
-print(factorial(6, 1, 1))
+
 
