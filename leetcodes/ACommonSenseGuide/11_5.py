@@ -10,3 +10,4 @@ def max(array):
         return array[0]
     else:
         return max(array[1:len(array)-1])
+print(max([1,2,3,4,55]))
