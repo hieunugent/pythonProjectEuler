@@ -1,3 +1,6 @@
+from multiprocessing.sharedctypes import Value
+
+
 def func(row,col):
     if row ==1 or col == 1:
         return 1
@@ -15,3 +18,8 @@ def unique_paths(row, col):
     if row == 1 or col == 1:
         return 1
     return unique_paths(row-1, col) + unique_paths(row, col-1)
+class Node:
+    def __init__(self, value, next) -> None:
+        self.value = value
+        self.next = next
+    
