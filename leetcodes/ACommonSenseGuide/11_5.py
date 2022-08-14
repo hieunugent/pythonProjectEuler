@@ -19,7 +19,8 @@ def unique_paths(row, col):
         return 1
     return unique_paths(row-1, col) + unique_paths(row, col-1)
 class Node:
-    def __init__(self, value, next) -> None:
+    def __init__(self, value, next):
         self.value = value
         self.next = next
-    
+    def getNode(self) -> None:
+        pass
