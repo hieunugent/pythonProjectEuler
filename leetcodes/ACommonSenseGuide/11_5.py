@@ -1,4 +1,6 @@
+from logging import root
 from multiprocessing.sharedctypes import Value
+from turtle import left
 
 
 def func(row,col):
@@ -18,9 +20,14 @@ def unique_paths(row, col):
     if row == 1 or col == 1:
         return 1
     return unique_paths(row-1, col) + unique_paths(row, col-1)
-class Node:
-    def __init__(self, value, next):
-        self.value = value
-        self.next = next
-    def getNode(self) -> None:
-        pass
+
+class BST:
+    def __init__(self,left,right ) -> None:
+        self.root = root
+        self.left = left
+        self.right = right
+        
+    def insert(node):
+        if node < root:
+            
+        
