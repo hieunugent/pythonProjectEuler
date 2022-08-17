@@ -29,5 +29,5 @@ class BST:
         
     def insert(node):
         if node < root:
-            
+      
         
