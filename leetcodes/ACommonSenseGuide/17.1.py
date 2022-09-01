@@ -20,7 +20,7 @@ class TriesNode:
             print(key)
             if key != "*":
                 self.traverses(childNode)
-    def autocorrect(self, word):
+    def autoCorrect(self, word):
         currentNode = self.root 
         wordFoundSoFar = ""
         for char in word:
