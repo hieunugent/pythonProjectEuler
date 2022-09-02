@@ -1,6 +1,3 @@
-from lib2to3.pytree import Node
-
-
 class TriesNode:
     def __init__(self):
         self.children = {}
@@ -23,5 +20,14 @@ class TriesNode:
             print(key)
             if key != "*":
                 self.traverses(childNode)
-    
+    def autocorrect(self, word):
+        currentNode = self.root 
+        wordFoundSoFar = ""
+        for char in word:
+            if currentNode.children.get(char):
+                wordFoundSoFar +=char
+                currentNode = currentNode.children.get(char)
+            else:
+                return wordFoundSoFar + self.collectAllWord(currentNode)[0]
+        return word
         
