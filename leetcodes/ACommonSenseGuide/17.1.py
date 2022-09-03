@@ -23,4 +23,5 @@ class TriesNode:
             print(key)
             if key != "*":
                 self.traverses(childNode)
+    
         
