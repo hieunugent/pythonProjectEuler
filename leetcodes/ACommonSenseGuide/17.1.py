@@ -17,3 +17,10 @@ class TriesNode:
         if not currentNode:
             return Node
         return self.collectAllWord(currentNode)
+    def traverses(self, node = Node):
+        currentNode = node or self.root 
+        for key, childNode in currentNode.children.items():
+            print(key)
+            if key != "*":
+                self.traverses(childNode)
+        
