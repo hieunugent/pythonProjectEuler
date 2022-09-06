@@ -30,7 +30,7 @@ class Trie:
     def autocomplete(self, prefix):
         currentNode = self.search(prefix)
         if not currentNode:
-            return Node
+            return None
         return self.collectAllWord(currentNode)
 
     def traverses(self, node=Node):
