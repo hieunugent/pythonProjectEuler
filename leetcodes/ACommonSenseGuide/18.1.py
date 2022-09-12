@@ -16,7 +16,7 @@ def bfs_traverse(start_vertex):
             if not visited_vertex[adjacent_vertex.value]:
                 visited_vertex[adjacent_vertex.value] = True
                 queue.append(adjacent_vertex)
-    
+     
                 
         
     
