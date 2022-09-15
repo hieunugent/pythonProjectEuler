@@ -17,6 +17,7 @@ def bfs_traverse(start_vertex):
                 visited_vertex[adjacent_vertex.value] = True
                 queue.append(adjacent_vertex)
      
-                
+def dijkstra_Algo():
+    pass                
         
     
