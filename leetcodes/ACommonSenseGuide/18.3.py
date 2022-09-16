@@ -37,5 +37,16 @@ def dijkstra_Algo(starting_city, final_destination):
             if visited_cities[adjacent_city.name]:
                 unvisited_cities.append(adjacent_city)
             price_through_current_city = cheapest_price_table[current_city.name] +price
-            if not cheapest_price_table[current_city.name] or price_through_current_city < 
+            if not cheapest_price_table[current_city.name] or price_through_current_city < cheapest_price_table[adjacent_city.name]:
+                cheapest_price_table[adjacent_city.name] = price_through_current_city
+                cheapest_previous_stopover_city_table[adjacent_city.name] = current_city.name
+        if unvisited_cities:
+            current_city = unvisited_cities[0]
+            current_price = cheapest_price_table[current_city.name]
+        for city in unvisited_cities:
+            if cheapest_price_table[city.name] < current_price:
+                current_city = city
+        
+                
+    
             
