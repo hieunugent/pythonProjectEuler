@@ -24,11 +24,10 @@ def dijkstra_Algo(starting_city, final_destination):
     cheapest_price_table= {}
     cheapest_privious_stop_over = {}
     unvisited_city = []
+    visited_cities ={}
+    cheapest_price_table[starting_city.name] = 0
+    current_city = starting_city
     
-    w
-
-
-
 
                
 print(dijkstra_Algo(atlanta, el_paso))    
