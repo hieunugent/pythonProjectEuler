@@ -21,7 +21,9 @@ denver.add_route(chicago, 40)
 denver.add_route(el_paso,140)
 
 def dijkstra_Algo(starting_city, final_destination):
-    pass
+    cheapest_price_table= {}
+    cheapest_privious_stop_over = {}
+    
 
 
 
