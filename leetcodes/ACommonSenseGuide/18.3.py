@@ -28,6 +28,7 @@ def dijkstra_Algo(starting_city, final_destination):
     cheapest_price_table[starting_city.name] = 0
     current_city = starting_city
     while current_city:
+        visited_cities[current_city.name]= True
         
 
                
