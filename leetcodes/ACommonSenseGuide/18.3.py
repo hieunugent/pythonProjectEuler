@@ -29,8 +29,16 @@ def dijkstra_Algo(starting_city, final_destination):
     current_city = starting_city
     while current_city:
         visited_cities[current_city.name]= True
-        
+        if unvisited_city:
+            print("There is a Unvisited City")
+            unvisited_city.remove(current_city.name)
+        value = current_city.route.keys()
+       
+        for v in value:
+            print(v.name)
+            
+            
+        break
 
-               
 print(dijkstra_Algo(atlanta, el_paso))    
             
