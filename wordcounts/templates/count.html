@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<div>
+    <a href="{% url 'home' %}">go back Home</a>
+    <h1>There are {{count}} in your text </h1>
+    <h1> The full text that you have is :</h1>
+    {{full_text}}
+    <h1> Dictionary</h1>
+    {{word_dictionary}}
+
+</div>
+{% endblock %}
